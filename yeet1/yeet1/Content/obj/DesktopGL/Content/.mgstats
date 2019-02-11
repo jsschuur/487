@@ -1,0 +1,8 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/BasicEnemy.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/BasicEnemy.xnb","TextureProcessor","Texture2DContent",214,16469,0.2433496
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/BasicEnemyProjectile.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/BasicEnemyProjectile.xnb","TextureProcessor","Texture2DContent",306,1109,0.0039892
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/DefaultProjectile.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/DefaultProjectile.xnb","TextureProcessor","Texture2DContent",205,597,0.0039895
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/midboss.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/midboss.xnb","TextureProcessor","Texture2DContent",2793,65621,0.0079787
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/player.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/player.xnb","TextureProcessor","Texture2DContent",9025,16469,0.007979
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/PointedProjectile.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/PointedProjectile.xnb","TextureProcessor","Texture2DContent",1117,597,0.0049861
+"C:/Users/Jack/Documents/487/yeet1/yeet1/Content/Textures/TurretEnemy.png","C:/Users/Jack/Documents/487/yeet1/yeet1/Content/bin/DesktopGL/Content/Textures/TurretEnemy.xnb","TextureProcessor","Texture2DContent",561,4181,0.0049864
