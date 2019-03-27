@@ -1,0 +1,32 @@
+{
+	"BasicEnemy": {
+		"SpriteComponent": {
+			"TexturePath": "BasicFish", 
+			"Width": 64, 
+			"Height": 64, 
+			"Rotatable": false
+		},
+		"CollisionComponent": {
+			"HitboxShape": "Circle", 
+			"Radius": 32.0
+		},
+		"HealthComponent": {
+			"Health": 30
+		}
+	},
+
+	"BasicProjectile": {
+		"SpriteComponent": {
+			"TexturePath": "BasicProjectile",
+			"Width": 8,
+			"Height": 16,
+			"Acceleration": 0.0,
+			"Rotatable": true
+		},
+		"CollisionComponent": {
+			"HitboxShape": "Circle",
+			"Radius": 4.0
+		}
+	}
+}
+
