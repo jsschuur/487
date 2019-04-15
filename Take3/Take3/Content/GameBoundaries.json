@@ -1,0 +1,190 @@
+{
+	"LeftPlayerBoundary": {
+		"Tag": "HorizantalBoundary",
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 1,
+			"Height": 700,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 9,
+			"Y": 10
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+	"RightPlayerBoundary": {
+
+		"Tag": "HorizantalBoundary",
+		
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 1,
+			"Height": 700,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 710,
+			"Y": 10
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+
+	"TopPlayerBoundary": {
+
+		"Tag": "VerticalBoundary",
+		
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 700,
+			"Height": 1,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 10,
+			"Y": 9
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+	"BottomPlayerBoundary": {
+
+		"Tag": "VerticalBoundary",
+
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 700,
+			"Height": 1,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 10,
+			"Y": 710
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+
+
+	"LeftProjectileBoundary": {
+
+		"Tag": "ProjectileBoundary",
+
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 1,
+			"Height": 900,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": -91,
+			"Y": -90
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+
+	"RightProjectileBoundary": {
+
+		"Tag": "ProjectileBoundary",
+
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 1,
+			"Height": 900,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 810,
+			"Y": -90
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+
+	"TopProjectileBoundary": {
+
+		"Tag": "ProjectileBoundary",
+
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 900,
+			"Height": 1,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": -90,
+			"Y": -91
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	},
+	
+	"BottomProjectileBoundary": {
+
+		"Tag": "ProjectileBoundary",
+
+		"Sprite": {
+			"Path": "nulltexture",
+			"Width": 900,
+			"Height": 1,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": -90,
+			"Y": 810
+		},
+
+		"Collision": {
+			"Shape": "Box", 
+			"Buffer": 0
+		}
+	}
+}

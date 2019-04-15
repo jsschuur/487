@@ -1,7 +1,0 @@
-Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/Textures/BasicFish.PNG","C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/bin/Windows/Content/Textures/BasicFish.xnb","TextureProcessor","Texture2DContent",1484,16469,0.1336428
-"C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/Textures/BasicProjectile.png","C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/bin/Windows/Content/Textures/BasicProjectile.xnb","TextureProcessor","Texture2DContent",157,597,0.007979
-"C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/Textures/BlueFishSprite.png","C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/bin/Windows/Content/Textures/BlueFishSprite.xnb","TextureProcessor","Texture2DContent",11544,65621,0.0119681
-"C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/Textures/EmptyHealthBar.PNG","C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/bin/Windows/Content/Textures/EmptyHealthBar.xnb","TextureProcessor","Texture2DContent",217,16085,0.0109704
-"C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/Textures/Player.png","C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/bin/Windows/Content/Textures/Player.xnb","TextureProcessor","Texture2DContent",9025,16469,0.0099735
-"C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/Textures/PlayerHealthBar.PNG","C:/Users/Jack/Desktop/487/487/487Game/487Game/Content/bin/Windows/Content/Textures/PlayerHealthBar.xnb","TextureProcessor","Texture2DContent",189,10949,0.0109707

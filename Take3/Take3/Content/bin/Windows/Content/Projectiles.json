@@ -1,0 +1,75 @@
+{
+
+	"GreySquareProjectile": {
+
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/GreySquareProjectile",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 0.25,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 0
+		},
+
+		"Animations": [
+			{
+				"Name": "Default",
+				"NumFrames": 4,
+				"Delay": 100,
+				"YOffset": 0
+			},
+		],
+
+		"Scripts": ["Projectile"]
+	},
+
+	"PurpleDiamondProjectile": {
+
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/PurpleDiamondProjectile",
+			"Width": 16,
+			"Height": 16,
+			"Scale": 1,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 2
+		},
+		
+		"Scripts": ["FastLightProjectile"]
+	},
+
+
+	"GreenProjectile": {
+
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/GreenProjectile",
+			"Width": 16,
+			"Height": 16,
+			"Scale": 1,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 2
+		},
+		
+		"Scripts": ["SlowHeavyProjectile"]
+	},
+}

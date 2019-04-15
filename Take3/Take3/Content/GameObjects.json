@@ -1,0 +1,54 @@
+{
+	"GallaryButton": {
+		"Tag": "GallaryButton", 
+
+		"Sprite": {
+			"Path": "GallaryButton",
+			"Width": 64,
+			"Height": 64, 
+			"Depth": 0.3,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Scripts": ["GallaryButton"]
+	},
+
+	"GameOverlay": {
+
+		"Tag": "GameWindow",
+
+		"Sprite": {
+			"Path": "GameOverlay",
+			"Width": 1280,
+			"Height": 720,
+			"Depth": 0.5,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 0,
+			"Y": 0
+		}
+	},
+
+	"GameWindowBackground": {
+
+		"Tag": "GameWindow",
+
+		"Sprite": {
+			"Path": "GameWindowBackground",
+			"Width": 700,
+			"Height": 700,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 10,
+			"Y": 10
+		}
+	},
+}
