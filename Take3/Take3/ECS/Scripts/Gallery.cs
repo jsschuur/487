@@ -32,7 +32,7 @@ namespace Take3.ECS.Scripts
                 var newPositionX = (index % 6);
                 var newPositionY = (index / 6);
 
-                newObjectTransform.Position = new Vector2(newPositionX * buttonPadding + newPositionX * )
+                //newObjectTransform.Position = new Vector2(newPositionX * buttonPadding + newPositionX * )
 
                 var objSprite = ((Renderer)obj.GetComponent<Renderer>()).Sprite;
                 var newScale = (objSprite.SpriteRectangle.Width > objSprite.SpriteRectangle.Height) ? scale / objSprite.SpriteRectangle.Width : scale / objSprite.SpriteRectangle.Height;
