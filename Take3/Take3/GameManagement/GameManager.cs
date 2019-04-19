@@ -59,6 +59,7 @@ namespace Take3.GameManagement
             collisionManager.AddLayer("VerticalBoundary", "Player");
             collisionManager.AddLayer("HorizantalBoundary", "Player");
             collisionManager.AddLayer("PlayerProjectile", "ProjectileBoundary");
+            collisionManager.AddLayer("Player", "EnemyProjectile");
         }
 
         static GameManager() { }

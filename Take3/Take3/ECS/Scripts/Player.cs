@@ -13,14 +13,12 @@ namespace Take3.ECS.Scripts
     class Player : Script
     {
         private Transform transform;
+        private Velocity velocity;
+
         private Sprite sprite;
 
         private Sprite projectileSprite;
 
-        private Vector2 direction;
-        private Vector2 speed;
-
-        private Vector2 lastPosition;
 
         public GameObject PlayerProjectile { get; set; }
 
@@ -31,48 +29,47 @@ namespace Take3.ECS.Scripts
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            direction = new Vector2();
+
             transform = (Transform)GetComponent<Transform>();
+            velocity = (Velocity)GetComponent<Velocity>();
             sprite = ((Renderer)GetComponent<Renderer>()).Sprite;
 
-            PlayerProjectile = GameManager.GetPrefab("PurpleDiamondProjectile");
+            PlayerProjectile = Utility.CloneGameObject.Clone(GameManager.GetPrefab("PurpleDiamondProjectile"));
             PlayerProjectile.Tag = "Player" + PlayerProjectile.Tag;
 
             projectileSprite = ((Renderer)PlayerProjectile.GetComponent<Renderer>()).Sprite;
-
-            speed = new Vector2(250);
+            
         }
 
         private void PushBackVertical()
         {
-            transform.Y = lastPosition.Y;
+            transform.Y = velocity.LastPosition.Y;
         }
 
         private void PushBackHorizantal()
         {
-            transform.X = lastPosition.X;
+            transform.X = velocity.LastPosition.X;
         }
        
         public override void Update(GameTime gameTime)
         {
-
-            direction = Vector2.Zero;
+            velocity.Direction = Vector2.Zero;
 
             if (Input.KeyDown("left"))
             {
-                direction.X += -1;
+                velocity.XDir += -1;
             }
             if (Input.KeyDown("right"))
             {
-                direction.X += 1;
+                velocity.XDir += 1;
             }
             if (Input.KeyDown("down"))
             {
-                direction.Y += 1;
+                velocity.YDir += 1;
             }
             if (Input.KeyDown("up"))
             {
-                direction.Y += -1;
+                velocity.YDir += -1;
             }
             if (Input.KeyDown("fire"))
             {
@@ -83,18 +80,11 @@ namespace Take3.ECS.Scripts
                     canFire = false;
                 }
             }
-            if (direction.X != 0 || direction.Y != 0)
-            {
-                direction.Normalize();
-            }
 
             if(gameTime.TotalGameTime.TotalMilliseconds >= timeLastFired + cooldown)
             {
                 canFire = true;
             }
-
-            lastPosition = transform.Position;
-            transform.Position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public override void OnCollision(GameObject collider)
@@ -114,8 +104,8 @@ namespace Take3.ECS.Scripts
             var projectileInstance = GameManager.Instantiate(PlayerProjectile, 
                                                  new Vector2(sprite.GetCenter.X + transform.Position.X - projectileSprite.GetCenter.X,
                                                              transform.Position.Y));
-            var projectileInstanceScript = (Projectile)projectileInstance.GetComponent<Projectile>();
-            projectileInstanceScript.Direction = new Vector2(0, -1);
+            var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
+            instanceVelocity.Direction = new Vector2(0, -1);
         }
     }
 }

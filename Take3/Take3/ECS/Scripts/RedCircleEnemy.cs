@@ -27,7 +27,9 @@ namespace Take3.ECS.Scripts
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            projectile = GameManager.GetPrefab("PurpleDiamondProjectile");
+            projectile = Utility.CloneGameObject.Clone(GameManager.GetPrefab("PurpleDiamondProjectile"));
+
+            projectile.Tag = "Enemy" + projectile.Tag;
 
             transform = (Transform)GetComponent<Transform>();
             renderer = (Renderer)GetComponent<Renderer>();
@@ -43,9 +45,9 @@ namespace Take3.ECS.Scripts
                 for (currentAngle = 0; currentAngle < Math.PI * 2; currentAngle += offset)
                 {
                     var projectileInstance = GameManager.Instantiate(projectile, projectileOrigin);
-                    var instanceScript = (Projectile)projectileInstance.GetComponent<Projectile>();
+                    var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
 
-                    instanceScript.Direction = VectorMath.Angle2Vector(currentAngle);
+                    instanceVelocity.Direction = VectorMath.Angle2Vector(currentAngle);
                     ((Transform)projectileInstance.GetComponent<Transform>()).Rotation = currentAngle;
                 }
                 lastAttackTime = gameTime.TotalGameTime.TotalMilliseconds;

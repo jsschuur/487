@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jack/Documents/Take3/Take3/Content/Textures/nulltexture.png</SourceFile>
+  <SourceFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/nulltexture.png</SourceFile>
   <SourceTime>2019-04-12T13:18:22.0867581-07:00</SourceTime>
-  <DestFile>C:/Users/Jack/Documents/Take3/Take3/Content/bin/Windows/Content/Textures/nulltexture.xnb</DestFile>
-  <DestTime>2019-04-12T13:26:04.9094874-07:00</DestTime>
+  <DestFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/bin/Windows/Content/Textures/nulltexture.xnb</DestFile>
+  <DestTime>2019-04-19T01:26:18.5569173-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2019-01-19T13:27:06-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

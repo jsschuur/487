@@ -61,8 +61,9 @@ namespace Take3
             GameManager.AddGameObject(GameManager.GetPrefab("BottomPlayerBoundary"), State.Game);
 
             GameManager.AddGameObject(GameManager.GetPrefab("Midboss"), State.Game);
+            GameManager.AddGameObject(GameManager.GetPrefab("RedCircle"), State.Game);
 
-            foreach(var obj in GameManager.GetPrefabsByTag("GameWindow"))
+            foreach (var obj in GameManager.GetPrefabsByTag("GameWindow"))
             {
                 GameManager.AddGameObject(obj, State.Game);
             }

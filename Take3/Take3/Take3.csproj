@@ -57,7 +57,6 @@
     <Compile Include="ECS\Script.cs" />
     <Compile Include="ECS\Scripts\Button.cs" />
     <Compile Include="ECS\Scripts\ExitButton.cs" />
-    <Compile Include="ECS\Scripts\FastLightProjectile.cs" />
     <Compile Include="ECS\Scripts\GallaryButton.cs" />
     <Compile Include="ECS\Scripts\Gallery.cs" />
     <Compile Include="ECS\Scripts\JellyFishScript.cs" />
@@ -70,11 +69,11 @@
     <Compile Include="ECS\Scripts\Projectile.cs" />
     <Compile Include="ECS\Scripts\RedCircleEnemy.cs" />
     <Compile Include="ECS\Scripts\SingleSwitchLinearMovement.cs" />
-    <Compile Include="ECS\Scripts\SlowHeavyProjectile.cs" />
     <Compile Include="ECS\Scripts\Wave.cs" />
     <Compile Include="ECS\Sprite.cs" />
     <Compile Include="ECS\Transform.cs" />
     <Compile Include="ECS\Updatable.cs" />
+    <Compile Include="ECS\Velocity.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameManagement\Configs.cs" />
     <Compile Include="GameManagement\GameEventArgs.cs" />

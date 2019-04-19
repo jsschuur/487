@@ -17,13 +17,13 @@ namespace Take3.ECS.Scripts
         }
 
 
+        private Velocity velocity;
         private Transform transform;
+
         private Renderer renderer;
 
         private GameObject projectile;
         private Transform player;
-
-        private int speed = 200;
 
         private Vector2[] phaseOneCoordinates;
         private Vector2[] bossOutline;
@@ -44,10 +44,16 @@ namespace Take3.ECS.Scripts
             base.Initialize(owner);
 
             transform = (Transform)GetComponent<Transform>();
+            transform.Position = new Vector2(360, 300);
+
             renderer = (Renderer)GetComponent<Renderer>();
+
+            velocity = (Velocity)GetComponent<Velocity>();
 
             player = (Transform)GameManager.GetPrefab("Player").GetComponent<Transform>();
             projectile = GameManager.GetPrefab("GreenProjectile");
+
+            projectile.Tag = "Enemy" + projectile.Tag;
 
             phaseOneCoordinates = new Vector2[]
             {
@@ -81,8 +87,6 @@ namespace Take3.ECS.Scripts
                 new Vector2(255, 101) * renderer.Sprite.Scale,
             };
 
-            transform.Position = new Vector2(360, 300);
-
             midbossState = MidbossState.Phase1;
         }
 
@@ -101,7 +105,7 @@ namespace Take3.ECS.Scripts
         {
             var distance = Vector2.Distance(transform.Position, phaseOneCoordinates[currentPhase1Index]);
 
-            if (distance <= speed * gameTime.ElapsedGameTime.TotalSeconds)
+            if (distance <= velocity.Speed * gameTime.ElapsedGameTime.TotalSeconds)
             {
                 currentPhase1Index++;
                 if (currentPhase1Index >= 5) currentPhase1Index = 0;
@@ -109,9 +113,7 @@ namespace Take3.ECS.Scripts
             }
             else
             {
-                var direction = phaseOneCoordinates[currentPhase1Index] - transform.Position;
-                if (direction.X != 0 || direction.Y != 0) direction.Normalize();
-                transform.Position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                velocity.Direction = phaseOneCoordinates[currentPhase1Index] - transform.Position;
             }
         }
 
@@ -126,8 +128,9 @@ namespace Take3.ECS.Scripts
                     var direction = rotatedPoint - renderer.Sprite.GetCenter;
                     if (direction.X != 0 || direction.Y != 0) direction.Normalize();
                     var instance = GameManager.Instantiate(projectile, rotatedPoint + transform.Position - projectileRenderer.Sprite.GetCenter);
-                    var instanceProjectile = (Projectile)instance.GetComponent<Projectile>();
-                    instanceProjectile.Direction = direction;
+
+                    var instanceVelocity = (Velocity)instance.GetComponent<Velocity>();
+                    instanceVelocity.Direction = direction;
                 }
                 phase2LastAttack = gameTime.TotalGameTime.TotalMilliseconds;
             }
@@ -155,8 +158,8 @@ namespace Take3.ECS.Scripts
                 while(Vector2.Distance(currentPoint, bossOutline[j]) >= offset)
                 {
                     var projectileInstance = GameManager.Instantiate(projectile, currentPoint + transform.Position - projectileSprite.GetCenter);
-                    var instanceProjectile = (Projectile)projectileInstance.GetComponent<Projectile>();
-                    instanceProjectile.Direction = projectileDirection;
+                    var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
+                    instanceVelocity.Direction = projectileDirection;
                     currentPoint += offset * direction;
                 }
             }

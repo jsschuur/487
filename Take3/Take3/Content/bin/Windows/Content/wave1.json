@@ -11,6 +11,11 @@
 			"Rotatable": false 
 		},
 
+		"Velocity": {
+			"Speed": 200,
+			"Acceleration": 0
+		},
+
 		"Position": {
 			"X": 0,
 			"Y": 0

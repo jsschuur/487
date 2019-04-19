@@ -33,6 +33,8 @@ namespace Take3.Utility
                         CloneRenderer(copy, r); break;
                     case LinearMovement lm:
                         CloneLinearMovement(copy, lm); break;
+                    case Velocity v:
+                        CloneVelocity(copy, v); break;
                     case Script s:
                         CloneScript(copy, s); break;
                     default:
@@ -40,6 +42,14 @@ namespace Take3.Utility
                 }
             }
             return copy;
+        }
+
+        private static void CloneVelocity(GameObject copy, Velocity velocity)
+        {
+            var newVelocity = (Velocity)copy.AddComponent<Velocity>();
+
+            newVelocity.Speed = velocity.Speed;
+            newVelocity.Direction = new Vector2(velocity.Direction.X, velocity.Direction.Y);
         }
 
         private static void CloneLinearMovement(GameObject copy, LinearMovement linearMovement)

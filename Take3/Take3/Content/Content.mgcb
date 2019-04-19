@@ -25,6 +25,9 @@
 #begin mainmenu.json
 /copy:mainmenu.json
 
+#begin Projectiles.json
+/copy:Projectiles.json
+
 #begin Textures/BasicProjectile.png
 /importer:TextureImporter
 /processor:TextureProcessor

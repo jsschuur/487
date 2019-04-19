@@ -13,6 +13,11 @@
 			"Rotatable": true
 		},
 
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
 		"Collision": {
 			"Shape": "Circle", 
 			"Buffer": 0
@@ -43,12 +48,17 @@
 			"Rotatable": true
 		},
 
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
 		"Collision": {
 			"Shape": "Circle", 
 			"Buffer": 2
 		},
 		
-		"Scripts": ["FastLightProjectile"]
+		"Scripts": ["Projectile"]
 	},
 
 
@@ -65,11 +75,16 @@
 			"Rotatable": true
 		},
 
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
 		"Collision": {
 			"Shape": "Circle", 
 			"Buffer": 2
 		},
 		
-		"Scripts": ["SlowHeavyProjectile"]
+		"Scripts": ["Projectile"]
 	},
 }

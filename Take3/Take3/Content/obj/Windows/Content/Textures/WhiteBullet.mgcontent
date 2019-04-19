@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jack/Documents/Take3/Take3/Content/Textures/WhiteBullet.png</SourceFile>
+  <SourceFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/WhiteBullet.png</SourceFile>
   <SourceTime>2019-03-27T14:13:10.9596801-07:00</SourceTime>
-  <DestFile>C:/Users/Jack/Documents/Take3/Take3/Content/bin/Windows/Content/Textures/WhiteBullet.xnb</DestFile>
-  <DestTime>2019-04-08T20:30:13.3693794-07:00</DestTime>
+  <DestFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/bin/Windows/Content/Textures/WhiteBullet.xnb</DestFile>
+  <DestTime>2019-04-19T01:26:18.7289627-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2019-01-19T13:27:06-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

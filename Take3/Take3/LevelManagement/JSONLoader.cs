@@ -50,6 +50,8 @@ namespace Take3.LevelManagement
                     SetScale(newObject, args.Value); break;
                 case "Sprite":
                     AddSpriteArgs(newObject, args.Value); break;
+                case "Velocity":
+                    AddVelocityArgs(newObject, args.Value); break;
                 case "Animations":
                     AddAnimationArgs(newObject, args.Value); break;
                 case "Scripts":
@@ -61,6 +63,13 @@ namespace Take3.LevelManagement
                 case "Spawns":
                     AddWave(newObject, args.Value); break;
             }
+        }
+
+        private static void AddVelocityArgs(GameObject newObject, dynamic args)
+        {
+            var newVelocity = (Velocity)newObject.AddComponent<Velocity>();
+            newVelocity.Speed = args.Speed;
+            newVelocity.Acceleration = args.Acceleration;
         }
 
         private static void AddWave(GameObject newObject, dynamic args)
