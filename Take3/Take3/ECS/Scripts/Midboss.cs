@@ -22,7 +22,7 @@ namespace Take3.ECS.Scripts
 
         private Renderer renderer;
 
-        private GameObject projectile;
+        private Prefabrication projectile;
         private Transform player;
 
         private Vector2[] phaseOneCoordinates;
@@ -50,7 +50,7 @@ namespace Take3.ECS.Scripts
 
             velocity = (Velocity)GetComponent<Velocity>();
 
-            player = (Transform)GameManager.GetPrefab("Player").GetComponent<Transform>();
+            player = (Transform)GameManager.GetObjectByTag("Player").GetComponent<Transform>();
             projectile = GameManager.GetPrefab("GreenProjectile");
 
             projectile.Tag = "Enemy" + projectile.Tag;

@@ -20,11 +20,14 @@ namespace Take3.ECS.Scripts
         private Sprite projectileSprite;
 
 
-        public GameObject PlayerProjectile { get; set; }
+        public Prefabrication PlayerProjectile { get; set; }
 
         private float cooldown = 200;
         private double timeLastFired;
         private bool canFire = true;
+
+        private int damage;
+        private float projectileSpeed;
 
         public override void Initialize(GameObject owner)
         {
@@ -34,11 +37,12 @@ namespace Take3.ECS.Scripts
             velocity = (Velocity)GetComponent<Velocity>();
             sprite = ((Renderer)GetComponent<Renderer>()).Sprite;
 
-            PlayerProjectile = Utility.CloneGameObject.Clone(GameManager.GetPrefab("PurpleDiamondProjectile"));
-            PlayerProjectile.Tag = "Player" + PlayerProjectile.Tag;
+            PlayerProjectile = GameManager.GetPrefab("PurpleDiamondProjectile");
+
 
             projectileSprite = ((Renderer)PlayerProjectile.GetComponent<Renderer>()).Sprite;
-            
+
+            damage = 10;            
         }
 
         private void PushBackVertical()
@@ -99,13 +103,23 @@ namespace Take3.ECS.Scripts
             }
         }
 
+        public void EquipPowerUp(PowerUp powerUp)
+        {
+            damage = powerUp.Damage;
+            PlayerProjectile = powerUp.Projectile;
+        }
+
         private void FireProjectile()
         {
             var projectileInstance = GameManager.Instantiate(PlayerProjectile, 
                                                  new Vector2(sprite.GetCenter.X + transform.Position.X - projectileSprite.GetCenter.X,
                                                              transform.Position.Y));
+
+            projectileInstance.Tag = "Player" + PlayerProjectile.Tag;
             var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
             instanceVelocity.Direction = new Vector2(0, -1);
+            var instanceProjectile = (Projectile)projectileInstance.GetComponent<Projectile>();
+            instanceProjectile.Damage = damage;
         }
     }
 }

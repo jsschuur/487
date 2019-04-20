@@ -17,7 +17,7 @@ namespace Take3.ECS
         private Renderer renderer;
         private Transform transform;
 
-        private Dictionary<string, Animation> animations;
+        private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
 
         public Dictionary<string, Animation> Animations { get { return animations; } set { animations = value; } }
         public Animation CurrentAnimation { get { return currentAnimation; } set { currentAnimation = value; } }
@@ -27,7 +27,6 @@ namespace Take3.ECS
             base.Initialize(owner);
             renderer = (Renderer)GetComponent<Renderer>();
             transform = (Transform)GetComponent<Transform>();
-            animations = new Dictionary<string, Animation>();
         }
 
         public void AddAnimation(string name, Animation animation)

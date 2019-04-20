@@ -54,11 +54,12 @@
     <Compile Include="ECS\GameObject.cs" />
     <Compile Include="ECS\Animator.cs" />
     <Compile Include="ECS\Collision\EnemyCollision.cs" />
+    <Compile Include="ECS\Scripts\PowerUp.cs" />
+    <Compile Include="ECS\Prefabrication.cs" />
     <Compile Include="ECS\Script.cs" />
     <Compile Include="ECS\Scripts\Button.cs" />
+    <Compile Include="ECS\Scripts\Enemy.cs" />
     <Compile Include="ECS\Scripts\ExitButton.cs" />
-    <Compile Include="ECS\Scripts\GallaryButton.cs" />
-    <Compile Include="ECS\Scripts\Gallery.cs" />
     <Compile Include="ECS\Scripts\JellyFishScript.cs" />
     <Compile Include="ECS\Scripts\LinearMovement.cs" />
     <Compile Include="ECS\Scripts\LinearProjectile.cs" />
@@ -67,9 +68,11 @@
     <Compile Include="ECS\Scripts\Player.cs" />
     <Compile Include="ECS\Renderer.cs" />
     <Compile Include="ECS\Scripts\Projectile.cs" />
+    <Compile Include="ECS\Scripts\GreySquarePowerUp.cs" />
     <Compile Include="ECS\Scripts\RedCircleEnemy.cs" />
     <Compile Include="ECS\Scripts\SingleSwitchLinearMovement.cs" />
     <Compile Include="ECS\Scripts\Wave.cs" />
+    <Compile Include="ECS\Scripts\Wave1.cs" />
     <Compile Include="ECS\Sprite.cs" />
     <Compile Include="ECS\Transform.cs" />
     <Compile Include="ECS\Updatable.cs" />

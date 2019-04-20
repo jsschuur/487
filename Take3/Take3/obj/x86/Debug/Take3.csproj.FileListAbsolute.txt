@@ -142,3 +142,6 @@ C:\Users\Jack\Documents\487\Take3\Take3\obj\x86\Debug\Take3.csproj.CoreCompileIn
 C:\Users\Jack\Documents\487\Take3\Take3\obj\x86\Debug\Take3.csproj.CopyComplete
 C:\Users\Jack\Documents\487\Take3\Take3\obj\x86\Debug\Take3.exe
 C:\Users\Jack\Documents\487\Take3\Take3\obj\x86\Debug\Take3.pdb
+C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Player.json
+C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\GallaryButton.xnb
+C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\TestPowerUp.xnb

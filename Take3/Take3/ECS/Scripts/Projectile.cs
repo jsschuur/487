@@ -9,9 +9,12 @@ namespace Take3.ECS.Scripts
 {
     class Projectile : Script
     {
+
+        public int Damage { get; set; }
+
         public override void OnCollision(GameObject collider)
         {
-            if(collider.Tag == "ProjectileBoundary" || collider.Tag == "Player")
+            if(collider.Tag == "ProjectileBoundary" || collider.Tag == "Player" || collider.Tag == "Enemy")
             {
                 Die();
             }

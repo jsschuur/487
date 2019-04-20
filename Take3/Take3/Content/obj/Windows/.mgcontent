@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/BasicProjectile.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/BlackCircle.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/BlueDiamond.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Button.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/EmptyHealthBar.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/ExitButton.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GameOverlay.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GameWindowBackground.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GreenSquare.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Jellyfish.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/MainMenu.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Midboss.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/nulltexture.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/OptionsButton.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/PlayButton.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Player.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/BlueProjectile.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/GreenProjectile.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/GreenSquareProjectile.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/GreySquareProjectile.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/PinkSquareProjectile.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/PurpleDiamondProjectile.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/RedProjectile.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/WhiteDiamondProjectile.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/WhiteProjectile.PNG</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/RedCircle.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/RedExpandingCircle.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/WhiteBullet.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/YellowHexagon.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

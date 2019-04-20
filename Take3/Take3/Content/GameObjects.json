@@ -36,4 +36,30 @@
 			"Y": 10
 		}
 	},
+
+	"PurpleDiamondProjectilePowerUp" : {
+
+		"Tag": "PowerUp",
+
+		"Sprite": {
+			"Path": "TestPowerUp",
+			"Width": 32,
+			"Height": 16,
+			"Depth": 0.3,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Collision": {
+			"Shape": "Box",
+			"Buffer": 0
+		},
+
+		"Velocity": {
+			"Speed": 200,
+			"Acceleration": 0
+		},
+
+		"Scripts": ["GreySquarePowerUp"]
+	}
 }

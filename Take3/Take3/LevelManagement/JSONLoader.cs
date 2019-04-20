@@ -30,51 +30,70 @@ namespace Take3.LevelManagement
 
             foreach(dynamic obj in data)
             {
-                GameObject newObject = new GameObject();
-                GameManager.AddPrefabrication(obj.Name, newObject);
+                Prefabrication prefab = new Prefabrication();
+                GameManager.AddPrefabrication(obj.Name, prefab);
 
                 foreach(dynamic args in obj.Value)
                 {
-                    AddJSONArgs(newObject, args);
+                    AddJSONArgs(prefab, args);
                 }
             }
         }
 
-        private static void AddJSONArgs(GameObject newObject, dynamic args)
+        public static GameObject LoadJSONWave(string path)
+        {
+            GameObject obj = new GameObject();
+            var wave = (Wave)obj.AddComponent<Wave>();
+
+            var json = new StreamReader(path).ReadToEnd();
+
+            dynamic data = JsonConvert.DeserializeObject(json);
+
+            foreach (dynamic spawn in data.Spawns)
+            {
+                wave.AddSpawn(new Spawn((string)(spawn.Name),
+                                        new Vector2((float)spawn.X, (float)spawn.Y), 
+                                        (float)spawn.Time));
+            }
+
+            return obj;
+        }
+
+        private static void AddJSONArgs(Prefabrication prefab, dynamic args)
         {
             switch(args.Name)
             {
                 case "Tag":
-                    newObject.Tag = (string)args.Value; break;
+                    prefab.Tag = (string)args.Value; break;
                 case "Scale":
-                    SetScale(newObject, args.Value); break;
+                    SetScale(prefab, args.Value); break;
                 case "Sprite":
-                    AddSpriteArgs(newObject, args.Value); break;
+                    AddSpriteArgs(prefab, args.Value); break;
                 case "Velocity":
-                    AddVelocityArgs(newObject, args.Value); break;
+                    AddVelocityArgs(prefab, args.Value); break;
                 case "Animations":
-                    AddAnimationArgs(newObject, args.Value); break;
+                    AddAnimationArgs(prefab, args.Value); break;
                 case "Scripts":
-                    AddScripts(newObject, args.Value); break;
+                    AddScripts(prefab, args.Value); break;
                 case "Position":
-                    ChangePosition(newObject, args.Value); break;
+                    ChangePosition(prefab, args.Value); break;
                 case "Collision":
-                    AddCollisionArgs(newObject, args.Value); break;
+                    AddCollisionArgs(prefab, args.Value); break;
                 case "Spawns":
-                    AddWave(newObject, args.Value); break;
+                    AddWave(prefab, args.Value); break;
             }
         }
 
-        private static void AddVelocityArgs(GameObject newObject, dynamic args)
+        private static void AddVelocityArgs(Prefabrication prefab, dynamic args)
         {
-            var newVelocity = (Velocity)newObject.AddComponent<Velocity>();
+            var newVelocity = (Velocity)prefab.AddComponent<Velocity>();
             newVelocity.Speed = args.Speed;
             newVelocity.Acceleration = args.Acceleration;
         }
 
-        private static void AddWave(GameObject newObject, dynamic args)
+        private static void AddWave(Prefabrication prefab, dynamic args)
         {
-            var wave = (Wave)newObject.AddComponent<Wave>();
+            var wave = (Wave)prefab.AddComponent<Wave>();
           
             foreach(var spawn in args)
             {
@@ -83,29 +102,29 @@ namespace Take3.LevelManagement
             }
         }
 
-        private static void SetScale(GameObject newObject, dynamic args)
+        private static void SetScale(Prefabrication prefab, dynamic args)
         {
-            var transform = (Transform)newObject.GetComponent<Transform>();
+            var transform = (Transform)prefab.GetComponent<Transform>();
             transform.Scale = (float)args.Value;
         }
 
-        private static void ChangePosition(GameObject newObject, dynamic args)
+        private static void ChangePosition(Prefabrication prefab, dynamic args)
         {
-            var transform = (Transform)newObject.GetComponent<Transform>();
+            var transform = (Transform)prefab.GetComponent<Transform>();
             transform.Position = new Vector2((float)args.X, (float)args.Y);
         }
 
-        private static void AddSpriteArgs(GameObject newObject, dynamic args)
+        private static void AddSpriteArgs(Prefabrication prefab, dynamic args)
         {
-            var newRenderer = (Renderer)newObject.AddComponent<Renderer>();
+            var newRenderer = (Renderer)prefab.AddComponent<Renderer>();
             newRenderer.Sprite = new Sprite(TextureManager.LoadTexture((string)args.Path), 
                                             new Rectangle(0, 0, (int)args.Width, (int)args.Height), 
                                             (float)args.Scale, (bool)args.Rotatable, (float)args.Depth);
         }
 
-        private static void AddAnimationArgs(GameObject newObject, dynamic args)
+        private static void AddAnimationArgs(Prefabrication prefab, dynamic args)
         {
-            var animator = (Animator)newObject.AddComponent<Animator>();
+            var animator = (Animator)prefab.AddComponent<Animator>();
             foreach(dynamic animation in args)
             {
                 animator.AddAnimation((string)animation.Name, 
@@ -113,28 +132,28 @@ namespace Take3.LevelManagement
             }
         }
 
-        private static void AddScripts(GameObject newObject, dynamic args)
+        private static void AddScripts(Prefabrication prefab, dynamic args)
         {
             foreach(dynamic script in args)
             {
                 Type newScript = Type.GetType("Take3.ECS.Scripts." + (string)script);
                 if(newScript != null)
                 {
-                    newObject.AddComponent((Component)Activator.CreateInstance(newScript));
+                    prefab.AddComponent((Component)Activator.CreateInstance(newScript));
                 }
             }
         }
 
-        public static void AddCollisionArgs(GameObject newObject, dynamic args)
+        public static void AddCollisionArgs(Prefabrication prefab, dynamic args)
         {
             if((string)args.Shape == "Circle")
             {
-                var collider = (Collider)newObject.AddComponent<CircleCollider>();
+                var collider = (Collider)prefab.AddComponent<CircleCollider>();
                 collider.Buffer = (float)args.Buffer;
             }
             else
             {
-                var collider = (Collider)newObject.AddComponent<BoxCollider>();
+                var collider = (Collider)prefab.AddComponent<BoxCollider>();
                 collider.Buffer = (float)args.Buffer;
             }
         }

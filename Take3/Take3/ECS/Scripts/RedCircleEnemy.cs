@@ -9,10 +9,10 @@ using static Take3.Utility.UtilityMath;
 
 namespace Take3.ECS.Scripts
 {
-    class RedCircleEnemy : Script
+    class RedCircleEnemy : Enemy
     {
 
-        private GameObject projectile;
+        private Prefabrication projectile;
 
         private Transform transform;
         private Renderer renderer;
@@ -27,17 +27,19 @@ namespace Take3.ECS.Scripts
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            projectile = Utility.CloneGameObject.Clone(GameManager.GetPrefab("PurpleDiamondProjectile"));
-
-            projectile.Tag = "Enemy" + projectile.Tag;
+            projectile = GameManager.GetPrefab("PurpleDiamondProjectile");
 
             transform = (Transform)GetComponent<Transform>();
             renderer = (Renderer)GetComponent<Renderer>();
             projectileRenderer = (Renderer)projectile.GetComponent<Renderer>();
+
+            Health = 20;
         }
 
         public override void Update(GameTime gameTime)
         {
+            base.Update(gameTime);
+
             if(gameTime.TotalGameTime.TotalMilliseconds > lastAttackTime + cooldown)
             {
                 var projectileOrigin = renderer.Sprite.GetCenter + transform.Position - projectileRenderer.Sprite.GetCenter;
@@ -45,6 +47,7 @@ namespace Take3.ECS.Scripts
                 for (currentAngle = 0; currentAngle < Math.PI * 2; currentAngle += offset)
                 {
                     var projectileInstance = GameManager.Instantiate(projectile, projectileOrigin);
+                    projectileInstance.Tag = "Enemy" + projectileInstance.Tag;
                     var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
 
                     instanceVelocity.Direction = VectorMath.Angle2Vector(currentAngle);

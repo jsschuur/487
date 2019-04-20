@@ -45,32 +45,33 @@ namespace Take3
             JSONLoader.LoadJSONObjects("Content/wave1.json");
             JSONLoader.LoadJSONObjects("Content/GameObjects.json");
             JSONLoader.LoadJSONObjects("Content/GameBoundaries.json");
-
+            JSONLoader.LoadJSONObjects("Content/Player.json");
             JSONLoader.LoadJSONObjects("Content/Enemies.json");
 
 
-            GameManager.AddGameObject(GameManager.GetPrefab("PlayButton"));
-            GameManager.AddGameObject(GameManager.GetPrefab("ExitButton"));
-            GameManager.AddGameObject(GameManager.GetPrefab("OptionsButton"));
-            GameManager.AddGameObject(GameManager.GetPrefab("MainMenu"));
+            GameManager.Instantiate(GameManager.GetPrefab("PlayButton"), State.Menu);
+            GameManager.Instantiate(GameManager.GetPrefab("ExitButton"), State.Menu);
+            GameManager.Instantiate(GameManager.GetPrefab("OptionsButton"), State.Menu);
+            GameManager.Instantiate(GameManager.GetPrefab("MainMenu"), State.Menu);
 
-            GameManager.AddGameObject(GameManager.GetPrefab("Player"), State.Game);
-            GameManager.AddGameObject(GameManager.GetPrefab("LeftPlayerBoundary"), State.Game);
-            GameManager.AddGameObject(GameManager.GetPrefab("TopPlayerBoundary"), State.Game);
-            GameManager.AddGameObject(GameManager.GetPrefab("RightPlayerBoundary"), State.Game);
-            GameManager.AddGameObject(GameManager.GetPrefab("BottomPlayerBoundary"), State.Game);
+            GameManager.Instantiate(GameManager.GetPrefab("LeftPlayerBoundary"), State.Game);
+            GameManager.Instantiate(GameManager.GetPrefab("TopPlayerBoundary"), State.Game);
+            GameManager.Instantiate(GameManager.GetPrefab("RightPlayerBoundary"), State.Game);
+            GameManager.Instantiate(GameManager.GetPrefab("BottomPlayerBoundary"), State.Game);
 
-            GameManager.AddGameObject(GameManager.GetPrefab("Midboss"), State.Game);
-            GameManager.AddGameObject(GameManager.GetPrefab("RedCircle"), State.Game);
+            GameManager.Instantiate(GameManager.GetPrefab("Wave1"), State.Game);
+
+
+
 
             foreach (var obj in GameManager.GetPrefabsByTag("GameWindow"))
             {
-                GameManager.AddGameObject(obj, State.Game);
+                GameManager.Instantiate(obj, State.Game);
             }
 
             foreach (var obj in GameManager.GetPrefabsByTag("ProjectileBoundary"))
             {
-                GameManager.AddGameObject(obj, State.Game);
+                GameManager.Instantiate(obj, State.Game);
             }
 
 

@@ -1,0 +1,191 @@
+{
+	"RedCircle": {
+		"Tag": "Enemy",
+		"Sprite": {
+			"Path": "RedCircle",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.2,
+			"Rotatable": false 
+		},
+
+		"Animations": [
+			{
+				"Name": "Idle",
+				"NumFrames": 10,
+				"Delay": 50,
+				"YOffset": 0
+			},
+		],
+
+		"Position": {
+			"X": 100,
+			"Y": 100
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 6
+		},
+
+		"Script": "RedCircleEnemy"
+	},
+
+	"BlueDiamond": {
+		"Tag": "Enemy",
+		"Sprite": {
+			"Path": "BlueDiamond",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.2,
+			"Rotatable": false 
+		},
+
+		"Animations": [
+			{
+				"Name": "Idle",
+				"NumFrames": 10,
+				"Delay": 50,
+				"YOffset": 0
+			},
+		],
+
+		"Position": {
+			"X": 100,
+			"Y": 100
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 6
+		},
+
+		"Script": "RedCircleEnemy"
+	},
+	"GreenSquare": {
+		"Tag": "Enemy",
+		"Sprite": {
+			"Path": "GreenSquare",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.2,
+			"Rotatable": false 
+		},
+
+		"Animations": [
+			{
+				"Name": "Idle",
+				"NumFrames": 10,
+				"Delay": 50,
+				"YOffset": 0
+			},
+		],
+
+		"Position": {
+			"X": 100,
+			"Y": 100
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 6
+		},
+
+		"Script": "RedCircleEnemy"
+	},
+	"BlackCircle": {
+		"Tag": "Enemy",
+		"Sprite": {
+			"Path": "BlackCircle",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.2,
+			"Rotatable": false 
+		},
+
+		"Animations": [
+			{
+				"Name": "Idle",
+				"NumFrames": 10,
+				"Delay": 50,
+				"YOffset": 0
+			},
+		],
+
+		"Position": {
+			"X": 100,
+			"Y": 100
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 6
+		},
+
+		"Script": "RedCircleEnemy"
+	},
+	"YellowHexagon": {
+		"Tag": "Enemy",
+		"Sprite": {
+			"Path": "YellowHexagon",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.2,
+			"Rotatable": false 
+		},
+
+		"Animations": [
+			{
+				"Name": "Idle",
+				"NumFrames": 10,
+				"Delay": 50,
+				"YOffset": 0
+			},
+		],
+
+		"Position": {
+			"X": 100,
+			"Y": 100
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 6
+		},
+
+		"Script": "RedCircleEnemy"
+	},
+	"Midboss": {
+		"Tag": "Midboss",
+		"Sprite": {
+			"Path": "Midboss",
+			"Width": 256,
+			"Height": 256,
+			"Scale": 0.5,
+			"Depth": 0.2,
+			"Rotatable": true 
+		},
+
+		"Position": {
+			"X": 100,
+			"Y": 100
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 6
+		},
+
+		"Script": "Midboss"
+	}
+}

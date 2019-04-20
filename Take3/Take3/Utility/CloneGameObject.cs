@@ -11,13 +11,13 @@ namespace Take3.Utility
 {
     static class CloneGameObject
     {
-        public static GameObject Clone(GameObject original)
+        public static GameObject Clone(Prefabrication original)
         {
             GameObject copy = new GameObject();
 
             copy.Tag = original.Tag;
 
-            foreach (Component c in original.GetComponents<Component>())
+            foreach (Component c in original.Components)
             {
                 switch (c)
                 {
@@ -27,6 +27,8 @@ namespace Take3.Utility
                         CloneAnimator(copy, a); break;
                     case CircleCollider cc:
                         CloneCircleCollider(copy, cc); break;
+                    case BoxCollider bc:
+                        CloneBoxCollider(copy, bc); break;
                     case LinearProjectile lp:
                         CloneLinearProjectile(copy, lp); break;
                     case Renderer r:
@@ -68,7 +70,9 @@ namespace Take3.Utility
         private static void CloneTransform(GameObject copy, Transform transform)
         {
             var newTransform = (Transform)copy.GetComponent<Transform>();
-            newTransform.Scale = transform.Scale;
+            newTransform.Initialize(copy);
+            newTransform.Position = transform.Position;
+            newTransform.Rotation = transform.Rotation;
         }
 
         private static void CloneAnimator(GameObject copy, Animator original)
@@ -82,6 +86,12 @@ namespace Take3.Utility
         {
             var newCircleCollider = (CircleCollider)copy.AddComponent<CircleCollider>();
             newCircleCollider.Buffer = original.Buffer;
+        }
+
+        private static void CloneBoxCollider(GameObject copy, BoxCollider original)
+        {
+            var newBoxCollider = (BoxCollider)copy.AddComponent<BoxCollider>();
+            newBoxCollider.Buffer = original.Buffer;
         }
 
         private static void CloneLinearProjectile(GameObject copy, LinearProjectile original)

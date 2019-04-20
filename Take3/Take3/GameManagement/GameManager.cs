@@ -23,7 +23,7 @@ namespace Take3.GameManagement
         private static readonly GameManager gameManager = new GameManager();
 
         private static Dictionary<State, GameState> gameStates;
-        private static Dictionary<string, GameObject> prefabrications;
+        private static Dictionary<string, Prefabrication> prefabrications;
         private static GameState currentState;
 
         private static State state;
@@ -34,7 +34,7 @@ namespace Take3.GameManagement
 
         private static Action exit;
 
-        public static List<GameObject> GameObjects { get { return prefabrications.Values.ToList(); } }
+        public static List<Prefabrication> Prefabrications { get { return prefabrications.Values.ToList(); } }
 
         public static void Init(Game game)
         {
@@ -42,7 +42,7 @@ namespace Take3.GameManagement
             {
                 gameStates[value] = new GameState();
             }
-            prefabrications = new Dictionary<string, GameObject>();
+            prefabrications = new Dictionary<string, Prefabrication>();
 
             configs = new Configs(game);
 
@@ -58,6 +58,7 @@ namespace Take3.GameManagement
             collisionManager.AddLayer("PlayerProjectile", "Enemy");
             collisionManager.AddLayer("VerticalBoundary", "Player");
             collisionManager.AddLayer("HorizantalBoundary", "Player");
+            collisionManager.AddLayer("PowerUp", "Player");
             collisionManager.AddLayer("PlayerProjectile", "ProjectileBoundary");
             collisionManager.AddLayer("Player", "EnemyProjectile");
         }
@@ -110,18 +111,34 @@ namespace Take3.GameManagement
             currentState.Draw(spriteBatch);
         }
 
-        public static GameObject Instantiate(GameObject prefab)
+        public static GameObject Instantiate(Prefabrication prefab)
         {
             GameObject newObject = CloneGameObject.Clone(prefab);
             currentState.AddGameObject(newObject);
             return newObject;
         }
 
-        public static GameObject Instantiate(GameObject prefab, Vector2 origin)
+        public static GameObject Instantiate(Prefabrication prefab, Vector2 origin)
         {
             GameObject newObject = CloneGameObject.Clone(prefab);
             ((Transform)newObject.GetComponent<Transform>()).Position = origin;
             currentState.AddGameObject(newObject);
+            return newObject;
+        }
+
+        public static GameObject Instantiate(Prefabrication prefab, State state)
+        {
+            GameObject newObject = CloneGameObject.Clone(prefab);
+            gameStates[state].AddGameObject(newObject);
+            return newObject;
+        }
+
+
+        public static GameObject Instantiate(Prefabrication prefab, Vector2 origin, State state)
+        {
+            GameObject newObject = CloneGameObject.Clone(prefab);
+            ((Transform)newObject.GetComponent<Transform>()).Position = origin;
+            gameStates[state].AddGameObject(newObject);
             return newObject;
         }
 
@@ -135,11 +152,11 @@ namespace Take3.GameManagement
             gameStates[state].AddGameObject(obj);
         }
 
-        public static void AddPrefabrication(string name, GameObject obj)
+        public static void AddPrefabrication(string name, Prefabrication prefab)
         {
             try
             {
-                prefabrications.Add(name, obj);
+                prefabrications.Add(name, prefab);
             }
             catch(ArgumentException)
             {
@@ -157,7 +174,7 @@ namespace Take3.GameManagement
             return currentState.GetObjectByTag(tag);
         }
 
-        public static GameObject GetPrefab(string name)
+        public static Prefabrication GetPrefab(string name)
         { 
             try
             {
@@ -169,7 +186,7 @@ namespace Take3.GameManagement
             }
         }
 
-        public static List<GameObject> GetPrefabsByTag(string tag)
+        public static List<Prefabrication> GetPrefabsByTag(string tag)
         {
             return prefabrications.Values.Where(obj => (obj.Tag == tag)).ToList();
         }

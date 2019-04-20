@@ -10,6 +10,7 @@
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Button.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/EmptyHealthBar.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/ExitButton.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GallaryButton.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GameOverlay.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GameWindowBackground.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GreenSquare.png</File>
@@ -31,10 +32,13 @@
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/WhiteProjectile.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/RedCircle.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/RedExpandingCircle.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/TestPowerUp.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/WhiteBullet.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/YellowHexagon.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
