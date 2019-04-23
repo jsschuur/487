@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Take3.ECS
 {
-    class Animation
+    public class Animation
     {
         public int NumFrames { get; set; }
         public float Delay { get; set; }

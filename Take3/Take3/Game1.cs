@@ -125,7 +125,6 @@ namespace Take3
             GameManager.Instantiate(GameManager.GetPrefab("LeftSpeedButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("RightSpeedButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("OptionsBackButton"), State.Options);
-            GameManager.Instantiate(GameManager.GetPrefab("OptionsOkButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("EditLeftButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("EditRightButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("EditUpButton"), State.Options);

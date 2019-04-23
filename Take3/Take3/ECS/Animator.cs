@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Take3.ECS
 {
-    class Animator : Updatable
+    public class Animator : Updatable
     {
         private Animation currentAnimation;
         public double lastSwitch;

@@ -33,6 +33,10 @@ namespace Take3.ECS
             return components.OfType<T>().First();
         }
 
+        public bool HasComponent<T>() where T : Component
+        {
+            return components.OfType<T>().Any();
+        }
 
         public void AddComponent(Component c)
         {

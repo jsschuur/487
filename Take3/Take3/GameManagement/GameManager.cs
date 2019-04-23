@@ -119,7 +119,7 @@ namespace Take3.GameManagement
                 currentState.Update(playingTime);
                 collisionManager.CheckCollisions();
 
-                if (Input.KeyDown("p") && !gamePaused)
+                if (Input.KeyDown("pause") && !gamePaused)
                 {
                     gamePaused = true;
                     Instantiate(GetPrefab("Pause"));

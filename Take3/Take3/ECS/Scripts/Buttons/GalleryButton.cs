@@ -25,6 +25,11 @@ namespace Take3.ECS.Scripts
 
             galleryButtonIcon = new Prefabrication();
             galleryButtonIcon.AddComponent(prefabRenderer);
+            if (prefab.HasComponent<Animator>())
+            {
+                galleryButtonIcon.AddComponent(prefab.GetComponent<Animator>());
+            }
+
 
             var xOffset = (renderer.Sprite.SpriteRectangle.Width - size) / 2;
             var yOffset = (renderer.Sprite.SpriteRectangle.Height - size) / 2;

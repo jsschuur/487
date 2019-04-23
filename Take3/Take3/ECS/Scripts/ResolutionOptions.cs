@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Take3.GameManagement;
+using Take3.Utility;
 
 namespace Take3.ECS.Scripts
 {
@@ -59,6 +60,7 @@ namespace Take3.ECS.Scripts
                 currentIndex = numResolutions- 1;
             }
             textRenderer.Text = resolutions[currentIndex].Item1.ToString() + "x" + resolutions[currentIndex].Item2.ToString();
+            Configs.SetResolution(resolutions[currentIndex]);
         }
 
         public void SwitchRight()
@@ -68,6 +70,7 @@ namespace Take3.ECS.Scripts
             {
                 currentIndex = 0;
             }
+            Configs.SetResolution(resolutions[currentIndex]);
             textRenderer.Text = resolutions[currentIndex].Item1.ToString() + "x" + resolutions[currentIndex].Item2.ToString();
         }
     }

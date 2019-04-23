@@ -11,6 +11,11 @@
 		"Scripts": ["ResolutionOptions"]
 	},
 
+	"KeybindingInput": {
+		"Tag": "KeybindingInput", 
+		"Scripts": ["KeyInput"]
+	},
+
 	"GamespeedScript": {
 		"Tag": "GamespeedOptions",
 
@@ -144,26 +149,7 @@
 
 		"Scripts": ["BackButton"]
 	},
-	"OptionsOkButton": {
 
-		"Tag": "OptionsOkButton",
-
-		"Sprite": {
-			"Path": "Buttons/OKButton",
-			"Width": 139,
-			"Height": 63,
-			"Depth": 0.1,
-			"Scale": 1,
-			"Rotatable": false
-		},
-
-		"Position": {
-			"X": 250,
-			"Y": 590
-		},
-
-		"Scripts": ["OptionsOkButton"]
-	},
 	"EditLeftButton": {
 
 		"Tag": "EditLeftButton",
@@ -178,11 +164,11 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 218
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["LeftKeybindButton"]
 	},
 	
 	"EditRightButton": {
@@ -199,11 +185,11 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 286
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["RightKeybindButton"]
 	},
 	
 	"EditUpButton": {
@@ -220,11 +206,11 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 355
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["UpKeybindButton"]
 	},
 	"EditDownButton": {
 
@@ -240,11 +226,11 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 423
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["DownKeybindButton"]
 	},
 	"EditSlowButton": {
 
@@ -260,11 +246,11 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 490
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["SlowKeybindButton"]
 	},
 	"EditShootButton": {
 
@@ -280,11 +266,11 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 558
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["FireKeybindButton"]
 	},
 
 	"EditPauseButton": {
@@ -301,10 +287,10 @@
 		},
 
 		"Position": {
-			"X": 767,
+			"X": 994,
 			"Y": 627
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["PauseKeybindButton"]
 	},
 }

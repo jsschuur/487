@@ -17,7 +17,7 @@ namespace Take3.ECS.Scripts
     {
         private Transform transform;
         private SpriteRenderer renderer;
-        private Animator animator;
+        protected Animator animator;
 
         protected ButtonObjectState state;
 

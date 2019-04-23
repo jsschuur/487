@@ -13,24 +13,38 @@ namespace Take3
     {
         private static readonly Input input = new Input();
 
-        private static Dictionary<string, Keys> _keys;
+        private static Dictionary<string, Keys> keys;
 
-        private static KeyboardState _previousKeyboardState;
-        private static MouseState _previousMouseState;
+        private static KeyboardState previousKeyboardState;
+        private static MouseState previousMouseState;
 
         static Input() { }
         private Input()
         {
-            _keys = new Dictionary<string, Keys>();
-            _keys["left"] = Keys.A;
-            _keys["right"] = Keys.D;
-            _keys["up"] = Keys.W;
-            _keys["down"] = Keys.S;
+            keys = new Dictionary<string, Keys>();
+            keys["left"] = Keys.A;
+            keys["right"] = Keys.D;
+            keys["up"] = Keys.W;
+            keys["down"] = Keys.S;
 
-            _keys["fire"] = Keys.Space;
-            _keys["p"] = Keys.P;
-            _keys["o"] = Keys.O;
-            _keys["shift"] = Keys.LeftShift;
+            keys["fire"] = Keys.Space;
+            keys["pause"] = Keys.P;
+            keys["slow"] = Keys.LeftShift;
+        }
+
+        public static Dictionary<string, Keys> GetKeys()
+        {
+            return keys;
+        }
+
+        public static void SetKey(string input, Keys key)
+        {
+            keys[input] = key;
+        }
+
+        public static bool KeybindOccupied(Keys key)
+        {
+            return keys.ContainsValue(key);
         }
 
         public static bool KeyDown(string input)
@@ -38,7 +52,7 @@ namespace Take3
             KeyboardState state = Keyboard.GetState();
             bool isDown;
 
-            if(state.IsKeyDown(_keys[input]))
+            if(state.IsKeyDown(keys[input]))
             {
                 isDown = true;
             }
@@ -47,7 +61,7 @@ namespace Take3
                 isDown = false;
             }
 
-            _previousKeyboardState = state;
+            previousKeyboardState = state;
             return isDown;
         }
 
@@ -56,7 +70,7 @@ namespace Take3
             KeyboardState state = Keyboard.GetState();
             bool isDown;
 
-            if (state.IsKeyDown(_keys[input]) && !_previousKeyboardState.IsKeyDown(_keys[input]))
+            if (state.IsKeyDown(keys[input]) && !previousKeyboardState.IsKeyDown(keys[input]))
             {
                 isDown = true;
             }
@@ -83,7 +97,7 @@ namespace Take3
         public static bool Clicked()
         {
             return Mouse.GetState().LeftButton == ButtonState.Released &&
-               _previousMouseState.LeftButton == ButtonState.Pressed;
+               previousMouseState.LeftButton == ButtonState.Pressed;
         }
     }
 }

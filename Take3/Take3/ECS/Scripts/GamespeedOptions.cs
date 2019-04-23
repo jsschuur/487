@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Take3.GameManagement;
+using Take3.Utility;
 
 namespace Take3.ECS.Scripts
 {
@@ -15,7 +16,6 @@ namespace Take3.ECS.Scripts
 
         private TextRenderer textRenderer;
 
-        public int Speed { get { return speed; } }
 
         public override void Initialize(GameObject owner)
         {
@@ -39,13 +39,16 @@ namespace Take3.ECS.Scripts
             speed--;
             if (speed <= 0) speed = numSpeeds;
             textRenderer.Text = speed.ToString();
+            Configs.SetPlayingTimeScale(speed);
         }
 
         public void SwitchRight()
         {
             speed++;
-            if (speed > numSpeeds) speed = 0;
+            if (speed > numSpeeds) speed = 1;
             textRenderer.Text = speed.ToString();
+            Configs.SetPlayingTimeScale(speed);
+
         }
             
     }
