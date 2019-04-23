@@ -51,8 +51,10 @@
     <Compile Include="ECS\Collision\CollisionManager.cs" />
     <Compile Include="ECS\Collision\CollisionMath.cs" />
     <Compile Include="ECS\Renderer.cs" />
+    <Compile Include="ECS\Scripts\Buttons\OptionsOkButton.cs" />
     <Compile Include="ECS\Scripts\Buttons\RightResolutionButton.cs" />
     <Compile Include="ECS\Scripts\Buttons\SwitchButton.cs" />
+    <Compile Include="ECS\Scripts\GamespeedOptions.cs" />
     <Compile Include="ECS\Scripts\ResolutionOptions.cs" />
     <Compile Include="ECS\Scripts\Buttons\BackButton.cs" />
     <Compile Include="ECS\Scripts\Buttons\MenuGalleryButton.cs" />
@@ -99,7 +101,6 @@
     <Compile Include="ECS\Updatable.cs" />
     <Compile Include="ECS\Velocity.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="GameManagement\Configs.cs" />
     <Compile Include="GameManagement\GameEventArgs.cs" />
     <Compile Include="GameManagement\GameManager.cs" />
     <Compile Include="GameManagement\GameState.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Screen\Resolution.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="Utility\CloneGameObject.cs" />
+    <Compile Include="Utility\Configs.cs" />
     <Compile Include="Utility\UtilityMath.cs" />
   </ItemGroup>
   <ItemGroup>

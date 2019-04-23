@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Take3.GameManagement;
+using Take3.Utility;
 
 namespace Take3.ECS.Scripts
 {
@@ -19,7 +20,7 @@ namespace Take3.ECS.Scripts
             base.Initialize(owner);
 
             activeObjects = new List<GameObject>();
-
+            Configs.SetMouseVisible();
             foreach(var obj in GameManager.GetGameObjects().Where(obj => (obj.IsActive)))
             {
                 obj.IsActive = false;

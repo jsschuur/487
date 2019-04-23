@@ -8,6 +8,7 @@ using Take3.ECS.Scripts.Collision;
 using Take3.GameManagement;
 using Take3.LevelManagement;
 using Take3.Screen;
+using Take3.Utility;
 
 namespace Take3
 {
@@ -38,8 +39,8 @@ namespace Take3
             
             GameManager.Init(this);
             TextureManager.Init(Content);
-
-        
+            Configs.Initialize(this, graphics);
+            
             JSONLoader.LoadJSONObjects("Content/GameObjects/MainMenu.json");
             JSONLoader.LoadJSONObjects("Content/GameObjects/Projectiles.json");
             JSONLoader.LoadJSONObjects("Content/GameObjects/wave1.json");
@@ -56,8 +57,8 @@ namespace Take3
             InitializeGallery();
             InitializeMainMenu();
 
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
             Resolution.Update(graphics);
 
             GameObject playButton = new GameObject();
@@ -133,6 +134,7 @@ namespace Take3
             GameManager.Instantiate(GameManager.GetPrefab("EditShootButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("EditPauseButton"), State.Options);
             GameManager.Instantiate(GameManager.GetPrefab("ResolutionScript"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("GamespeedScript"), State.Options);
             GameManager.SwitchState(State.Menu);
         }
 

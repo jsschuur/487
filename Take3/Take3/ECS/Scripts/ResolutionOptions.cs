@@ -17,9 +17,13 @@ namespace Take3.ECS.Scripts
         private int currentIndex;
         private int numResolutions;
 
+        public Tuple<int, int> SelectedResolution { get { return resolutions[currentIndex]; } }
+
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
+
+            currentIndex = 1;
 
             textRenderer = (TextRenderer)owner.AddComponent<TextRenderer>();
             textRenderer.Font = TextureManager.LoadFont("GameFont");
@@ -42,6 +46,8 @@ namespace Take3.ECS.Scripts
 
             switchLeftButton.Switch = SwitchLeft;
             switchRightButton.Switch = SwitchRight;
+
+
 
         }
 

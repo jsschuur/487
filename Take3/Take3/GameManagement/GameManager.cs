@@ -32,7 +32,6 @@ namespace Take3.GameManagement
         private static GameTime playingTime;
         private static float playingTimeScale;
 
-        private static Configs configs;
 
         private static CollisionManager collisionManager;
 
@@ -44,6 +43,13 @@ namespace Take3.GameManagement
 
         private static bool gamePaused;
 
+        static GameManager() { }
+
+        private GameManager()
+        {
+            gameStates = new Dictionary<State, GameState>();
+        }
+
         public static void Init(Game1 game)
         {
             foreach(State value in Enum.GetValues(typeof(State)))
@@ -52,9 +58,6 @@ namespace Take3.GameManagement
             }
             prefabrications = new Dictionary<string, Prefabrication>();
 
-            configs = new Configs(game);
-
-            configs.SetMouseVisible();
 
             exit = new Action(game.Exit);
             GameEvent += game.GameEventHandler;
@@ -74,13 +77,6 @@ namespace Take3.GameManagement
             playingTimeScale = 1;
         }
 
-        static GameManager() { }
-
-        private GameManager()
-        {
-            gameStates = new Dictionary<State, GameState>();
-        }
-
         public static void SetPlayingTimeScale(float scale)
         {
             playingTimeScale = scale;
@@ -96,16 +92,16 @@ namespace Take3.GameManagement
             {
                 GameEvent?.Invoke(gameManager, new GameEventArgs("InitializeGame"));
                 gamePaused = false;
-                configs.SetMouseInvisible();
+                Configs.SetMouseInvisible();
+            }
+            else
+            {
+                Configs.SetMouseVisible();
             }
 
             if(newState == State.Exit)
             {
                 GameEvent?.Invoke(gameManager, new GameEventArgs("Exit"));
-            }
-            else
-            {
-                configs.SetMouseVisible();
             }
         }
 
@@ -137,6 +133,7 @@ namespace Take3.GameManagement
 
         public static void UnPause()
         {
+            Configs.SetMouseVisible();
             gamePaused = false;
         }
 

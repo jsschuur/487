@@ -1,15 +1,25 @@
 {
 
 	"ResolutionScript": {
-		"Tag": "ResolutionScript",
+		"Tag": "ResolutionOptions",
 
-		"Position": 
-		{
-			"X": 348,
-			"Y": 218
+		"Position": {
+			"X": 358,
+			"Y": 200
 		},
 
 		"Scripts": ["ResolutionOptions"]
+	},
+
+	"GamespeedScript": {
+		"Tag": "GamespeedOptions",
+
+		"Position": {
+			"X": 268,
+			"Y": 380
+		},
+
+		"Scripts": ["GamespeedOptions"]
 	},
 
 	"OptionsBackground": {
@@ -139,9 +149,9 @@
 		"Tag": "OptionsOkButton",
 
 		"Sprite": {
-			"Path": "Buttons/OkButton",
-			"Width": 150,
-			"Height": 70,
+			"Path": "Buttons/OKButton",
+			"Width": 139,
+			"Height": 63,
 			"Depth": 0.1,
 			"Scale": 1,
 			"Rotatable": false
@@ -152,7 +162,7 @@
 			"Y": 590
 		},
 
-		"Scripts": ["LeftResolutionButton"]
+		"Scripts": ["OptionsOkButton"]
 	},
 	"EditLeftButton": {
 

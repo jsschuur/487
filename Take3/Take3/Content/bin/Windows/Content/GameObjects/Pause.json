@@ -7,36 +7,35 @@
 	"QuitButton": {
 		"Tag": "Pause",
 		"Sprite": {
-			"Path": "QuitButton",
-			"Width": 258,
-			"Height": 34,
-			"Depth": 0.6,
+			"Path": "Buttons/ExitButton",
+			"Width": 512,
+			"Height": 64,
+			"Depth": 0.8,
 			"Scale": 1,
 			"Rotatable": false
 		},
 
 		"Position": {
-			"X": 511,
-			"Y": 447
+			"X": 384,
+			"Y": 310
 		},
-
-		"Scripts": ["QuitButton"]
+		"Scripts": ["ExitButton"]
 	},
 
 	"ResumeButton": {
 		"Tag": "Pause",
 		"Sprite": {
-			"Path": "ResumeButton",
-			"Width": 258,
-			"Height": 34,
+			"Path": "Buttons/ResumeButton",
+			"Width": 512,
+			"Height": 64,
 			"Scale": 1,
-			"Depth": 0.6,
+			"Depth": 0.8,
 			"Rotatable": false, 
 		},
 
 		"Position": {
-			"X": 511,
-			"Y": 491
+			"X": 384,
+			"Y": 406
 		},
 		
 		"Scripts": ["ResumeButton"]
