@@ -9,7 +9,7 @@ using static Take3.Utility.UtilityMath;
 
 namespace Take3.ECS.Scripts
 {
-    class GreenSquareEnemy : Enemy
+    class YellowHexagonEnemy : Enemy
     {
 
         private Prefabrication projectile;
@@ -18,16 +18,17 @@ namespace Take3.ECS.Scripts
         private SpriteRenderer renderer;
         private SpriteRenderer projectileRenderer;
 
-        private float cooldown = 500;
+        private float cooldown;
         private double lastAttackTime;
 
-        private int projectileWave;
+        private int numProjectiles = 3;
+        private int projectileWave = 0;
         private Vector2 range;
 
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            projectile = GameManager.GetPrefab("GreenProjectile");
+            projectile = GameManager.GetPrefab("RedProjectile");
 
             transform = (Transform)GetComponent<Transform>();
             renderer = (SpriteRenderer)GetComponent<SpriteRenderer>();
@@ -36,7 +37,6 @@ namespace Take3.ECS.Scripts
             range = new Vector2(135, 225);
 
             health = 20;
-
         }
 
         public override void Update(GameTime gameTime)
@@ -44,21 +44,30 @@ namespace Take3.ECS.Scripts
             base.Update(gameTime);
             if (gameTime.TotalGameTime.TotalMilliseconds >= cooldown + lastAttackTime)
             {
+                var offset = VectorMath.Degrees2Radians((range.Y - range.X) / (numProjectiles + 1));
+                var currentAngle = VectorMath.Degrees2Radians(range.X);
 
-                cooldown = 100;
-                var projectileInstance = GameManager.Instantiate(projectile, transform.Position + renderer.Sprite.GetCenter() - projectileRenderer.Sprite.GetCenter());
 
-                var homing = (HomingProjectile)projectileInstance.GetComponent<HomingProjectile>();
-                homing.HomingTime = 500;
+                for (int i = 0; i < numProjectiles; i++)
+                {
+                    cooldown = 300;
+                    currentAngle += offset;
+                    var projectileInstance = GameManager.Instantiate(projectile, transform.Position + renderer.Sprite.GetCenter() - projectileRenderer.Sprite.GetCenter());
+                    projectileInstance.Tag = "Enemy" + projectileInstance.Tag;
 
-                projectileInstance.Tag = "Enemy" + projectileInstance.Tag;
+                    var delayedHoming = (DelayedHomingProjectile)projectileInstance.GetComponent<DelayedHomingProjectile>();
+                    delayedHoming.DelayTime = 400;
+                    delayedHoming.HomingTime = 300;
 
+                    var velocity = (Velocity)projectileInstance.GetComponent<Velocity>();
+                    velocity.Direction = VectorMath.Angle2Vector(currentAngle);
+                }
                 projectileWave++;
 
-                if (projectileWave > 4)
+                if (projectileWave > 2)
                 {
                     projectileWave = 0;
-                    cooldown = 1000;
+                    cooldown = 1250;
                 }
 
                 lastAttackTime = gameTime.TotalGameTime.TotalMilliseconds;
@@ -66,4 +75,3 @@ namespace Take3.ECS.Scripts
         }
     }
 }
-

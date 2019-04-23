@@ -175,3 +175,4 @@ C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\O
 C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\KeybindingButton.xnb
 C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\MenuGalleryButton.xnb
 C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\OKButton.xnb
+C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\MainMenuButton.xnb

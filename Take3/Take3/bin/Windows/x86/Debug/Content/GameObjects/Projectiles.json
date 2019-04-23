@@ -204,7 +204,7 @@
 			"Buffer": 0
 		},
 		
-		"Scripts": ["Projectile"]
+		"Scripts": ["HomingProjectile"]
 	},
 
 	"WhiteProjectile": {
@@ -230,7 +230,7 @@
 			"Buffer": 2
 		},
 		
-		"Scripts": ["Projectile"]
+		"Scripts": ["DelayedHomingProjectile"]
 	},
 
 	"RedProjectile": {
@@ -256,6 +256,6 @@
 			"Buffer": 2
 		},
 		
-		"Scripts": ["Projectile"]
+		"Scripts": ["DelayedHomingProjectile"]
 	},
 }

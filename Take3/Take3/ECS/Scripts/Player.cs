@@ -39,6 +39,7 @@ namespace Take3.ECS.Scripts
         private int damage;
 
         private Vector2 playerOrigin;
+        private Vector2 flippedPlayerOrigin;
 
         public override void Initialize(GameObject owner)
         {
@@ -57,8 +58,11 @@ namespace Take3.ECS.Scripts
             health = 100;
 
             playerOrigin = new Vector2(360, 580) - sprite.GetCenter();
+            flippedPlayerOrigin = VectorMath.RotatePoint(playerOrigin, new Vector2(360, 360), (float)Math.PI) - sprite.GetDimensions();
 
             transform.Position = playerOrigin;
+
+            isFlipped = false;
         }
 
         private void PushBackVertical()
@@ -155,7 +159,7 @@ namespace Take3.ECS.Scripts
                 obj.SetDisableTimer(1500);
             }
 
-            transform.Position = VectorMath.RotatePoint(playerOrigin, new Vector2(360, 360), transform.Rotation) - sprite.GetDimensions();
+            transform.Position = (isFlipped) ? flippedPlayerOrigin : playerOrigin;
             fireDelay = true;
             canFire = false;
             fireDelayTime = 1500;

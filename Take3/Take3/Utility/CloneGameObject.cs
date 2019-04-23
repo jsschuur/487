@@ -35,8 +35,6 @@ namespace Take3.Utility
                         CloneSpriteRenderer(copy, sr); break;
                     case TextRenderer tr:
                         CloneTextRenderer(copy, tr); break;
-                    case LinearMovement lm:
-                        CloneLinearMovement(copy, lm); break;
                     case Velocity v:
                         CloneVelocity(copy, v); break;
                     case Script s:
@@ -62,13 +60,6 @@ namespace Take3.Utility
             newTextRenderer.Font = textRenderer.Font;
             newTextRenderer.Text = textRenderer.Text;
             newTextRenderer.TextColor = textRenderer.TextColor;
-        }
-
-        private static void CloneLinearMovement(GameObject copy, LinearMovement linearMovement)
-        {
-            var newLinearMovement = (LinearMovement)copy.AddComponent<LinearMovement>();
-            newLinearMovement.Direction = new Vector2(linearMovement.Direction.X, linearMovement.Direction.Y);
-            newLinearMovement.Speed = linearMovement.Speed;
         }
 
         private static void CloneScript(GameObject copy, Script script)

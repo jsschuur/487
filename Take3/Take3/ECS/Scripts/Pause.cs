@@ -12,6 +12,7 @@ namespace Take3.ECS.Scripts
     {
         private GameObject quitButton;
         private GameObject resumeButton;
+        private GameObject mainMenuButton;
 
         private List<GameObject> activeObjects;
 
@@ -29,6 +30,7 @@ namespace Take3.ECS.Scripts
 
             quitButton = GameManager.Instantiate(GameManager.GetPrefab("QuitButton"));
             resumeButton = GameManager.Instantiate(GameManager.GetPrefab("ResumeButton"));
+            mainMenuButton = GameManager.Instantiate(GameManager.GetPrefab("MainMenuButton"));
             var resumeButtonInstance = (ResumeButton)resumeButton.GetComponent<ResumeButton>();
             resumeButtonInstance.Resume = Resume;
         }

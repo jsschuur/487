@@ -6,26 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Take3.LevelManagement;
 
-namespace Take3.ECS.Scripts
+namespace Take3.ECS.Scripts 
 {
-    class Wave1 : Wave
+    class Wave2 : Wave
     {
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
 
+            endTimeDelay = 2000;
+
             var spawnArray = new[]
             {
-                new Spawn("BlackCircle", new Vector2(500, 100), 0),
-                new Spawn("BlackCircle", new Vector2(300, 100), 0),
-                new Spawn("BlackCircle", new Vector2(400, 100), 0),
-                new Spawn("FlipGameScreen", new Vector2(400, 100), 1000),
+                new Spawn("BlackCircle", new Vector2(100, 100), 1000),
             };
-
+        
             foreach(var spawn in spawnArray)
             {
                 spawns.Enqueue(spawn);
             }
-        }
+}
     }
 }

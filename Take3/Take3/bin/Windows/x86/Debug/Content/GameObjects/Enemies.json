@@ -62,7 +62,7 @@
 			"Buffer": 6
 		},
 
-		"Scripts": ["RedCircleEnemy"]
+		"Scripts": ["BlueDiamondEnemy"]
 	},
 	"GreenSquare": {
 		"Tag": "Enemy",
@@ -158,7 +158,7 @@
 			"Buffer": 6
 		},
 
-		"Scripts": ["RedCircleEnemy"]
+		"Scripts": ["YellowHexagonEnemy"]
 	},
 	"Midboss": {
 
