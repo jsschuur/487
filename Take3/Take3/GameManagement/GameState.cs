@@ -16,6 +16,8 @@ namespace Take3.GameManagement
         private List<GameObject> added;
         private List<GameObject> removed;
 
+        public List<GameObject> GameObjects { get { return gameObjects; } }
+
         public GameState()
         {
             gameObjects = new List<GameObject>();
@@ -27,10 +29,7 @@ namespace Take3.GameManagement
         {
             foreach(var obj in gameObjects)
             {
-                foreach(var behavior in obj.GetComponents<Updatable>())
-                {
-                    ((Updatable)behavior).Update(gameTime);
-                }
+                obj.Update(gameTime);
 
                 if(!obj.IsAlive)
                 {
@@ -73,5 +72,30 @@ namespace Take3.GameManagement
             return gameObjects.Where(obj => (obj.Tag == tag)).First();
         }
 
+        public void AddGameObjectWithPriority(GameObject obj)
+        {
+            gameObjects.Add(obj);
+        }
+
+     
+
+        public void ClearObjects()
+        {
+            gameObjects.Clear();
+        }
+
+        public List<Component> GetComponents<T>() where T : Component
+        {
+            var list = new List<Component>();
+
+            foreach(var obj in gameObjects)
+            {
+                if(obj.HasComponent<T>())
+                {
+                    list.Add(obj.GetComponent<T>());
+                }
+            }
+            return list;
+        }
     }
 }

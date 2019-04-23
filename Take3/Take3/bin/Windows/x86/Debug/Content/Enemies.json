@@ -126,7 +126,7 @@
 			"Buffer": 6
 		},
 
-		"Scripts": ["RedCircleEnemy"]
+		"Scripts": ["BlackCircleEnemy"]
 	},
 	"YellowHexagon": {
 		"Tag": "Enemy",

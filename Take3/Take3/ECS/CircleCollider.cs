@@ -9,21 +9,21 @@ namespace Take3.ECS
 {
     class CircleCollider : Collider
     {
-        public float Radius { get { return radius - Buffer; } }
+        public float Radius { get { return (radius - buffer) * transform.Scale; } }
 
         private float radius;
 
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            
+
             if(size.X > size.Y)
             {
-                radius = size.X / 2;
+                radius = (size.Y / 2);
             }
             else
             {
-                radius = size.Y / 2;
+                radius = (size.X / 2);
             }
         }
 
@@ -31,8 +31,13 @@ namespace Take3.ECS
         {
             get
             {
-                return new Vector2(_transform.X + (size.X / 2), _transform.Y + (size.Y / 2));
+                return new Vector2(transform.X + (size.X / 2), transform.Y + (size.Y / 2));
             }
+        }
+
+        public Vector2 GetPosition()
+        {
+            return new Vector2(transform.X + ((size.X * transform.Scale) / 2), transform.Y + ((size.Y * transform.Scale) / 2));
         }
     }
 }

@@ -9,7 +9,7 @@ using static Take3.Utility.UtilityMath;
 
 namespace Take3.ECS.Scripts
 {
-    class Midboss : Script
+    class Midboss : Enemy
     {
         enum MidbossState
         {
@@ -20,7 +20,7 @@ namespace Take3.ECS.Scripts
         private Velocity velocity;
         private Transform transform;
 
-        private Renderer renderer;
+        private SpriteRenderer renderer;
 
         private Prefabrication projectile;
         private Transform player;
@@ -46,7 +46,7 @@ namespace Take3.ECS.Scripts
             transform = (Transform)GetComponent<Transform>();
             transform.Position = new Vector2(360, 300);
 
-            renderer = (Renderer)GetComponent<Renderer>();
+            renderer = (SpriteRenderer)GetComponent<SpriteRenderer>();
 
             velocity = (Velocity)GetComponent<Velocity>();
 
@@ -57,11 +57,11 @@ namespace Take3.ECS.Scripts
 
             phaseOneCoordinates = new Vector2[]
             {
-                new Vector2(360, 84) - renderer.Sprite.GetCenter,
-                new Vector2(248, 432) - renderer.Sprite.GetCenter,
-                new Vector2(541, 215) - renderer.Sprite.GetCenter,
-                new Vector2(178, 215) - renderer.Sprite.GetCenter,
-                new Vector2(471, 432) - renderer.Sprite.GetCenter
+                new Vector2(360, 84) - renderer.Sprite.GetCenter(),
+                new Vector2(248, 432) - renderer.Sprite.GetCenter(),
+                new Vector2(541, 215) - renderer.Sprite.GetCenter(),
+                new Vector2(178, 215) - renderer.Sprite.GetCenter(),
+                new Vector2(471, 432) - renderer.Sprite.GetCenter()
             };
 
             bossOutline = new Vector2[]
@@ -87,11 +87,13 @@ namespace Take3.ECS.Scripts
                 new Vector2(255, 101) * renderer.Sprite.Scale,
             };
 
-            midbossState = MidbossState.Phase1;
+            health = 10;
+            midbossState = MidbossState.Phase2;
         }
 
         public override void Update(GameTime gameTime)
         {
+            base.Update(gameTime);
             switch(midbossState)
             {
                 case MidbossState.Phase1:
@@ -121,13 +123,13 @@ namespace Take3.ECS.Scripts
         {
             if (gameTime.TotalGameTime.TotalMilliseconds >= phase2LastAttack + phase2AttackCooldown)
             {
-                var projectileRenderer = (Renderer)projectile.GetComponent<Renderer>();
+                var projectileRenderer = (SpriteRenderer)projectile.GetComponent<SpriteRenderer>();
                 foreach (var point in starPoints)
                 {
-                    var rotatedPoint = VectorMath.RotatePoint(point, renderer.Sprite.GetCenter, transform.Rotation);
-                    var direction = rotatedPoint - renderer.Sprite.GetCenter;
+                    var rotatedPoint = VectorMath.RotatePoint(point, renderer.Sprite.GetCenter(), transform.Rotation);
+                    var direction = rotatedPoint - renderer.Sprite.GetCenter();
                     if (direction.X != 0 || direction.Y != 0) direction.Normalize();
-                    var instance = GameManager.Instantiate(projectile, rotatedPoint + transform.Position - projectileRenderer.Sprite.GetCenter);
+                    var instance = GameManager.Instantiate(projectile, rotatedPoint + transform.Position - projectileRenderer.Sprite.GetCenter());
 
                     var instanceVelocity = (Velocity)instance.GetComponent<Velocity>();
                     instanceVelocity.Direction = direction;
@@ -140,7 +142,7 @@ namespace Take3.ECS.Scripts
 
         private void StarAttack()
         {
-            var projectileSprite = ((Renderer)projectile.GetComponent<Renderer>()).Sprite;
+            var projectileSprite = ((SpriteRenderer)projectile.GetComponent<SpriteRenderer>()).Sprite;
             var projectileDirection = player.Position - transform.Position;
 
             if(projectileDirection.X != 0 || projectileDirection.Y != 0) projectileDirection.Normalize();
@@ -157,7 +159,7 @@ namespace Take3.ECS.Scripts
 
                 while(Vector2.Distance(currentPoint, bossOutline[j]) >= offset)
                 {
-                    var projectileInstance = GameManager.Instantiate(projectile, currentPoint + transform.Position - projectileSprite.GetCenter);
+                    var projectileInstance = GameManager.Instantiate(projectile, currentPoint + transform.Position - projectileSprite.GetCenter());
                     var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
                     instanceVelocity.Direction = projectileDirection;
                     currentPoint += offset * direction;

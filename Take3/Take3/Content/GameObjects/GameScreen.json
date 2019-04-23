@@ -1,0 +1,84 @@
+{
+	"GameOverlay": {
+
+		"Tag": "GameWindow",
+
+		"Sprite": {
+			"Path": "GameOverlay",
+			"Width": 1280,
+			"Height": 720,
+			"Depth": 0.5,
+			"Scale": 1,
+			"Rotatable": false
+		},
+	},
+
+	"GameWindowBackground": {
+
+		"Tag": "GameWindow",
+
+		"Sprite": {
+			"Path": "GameWindowBackground",
+			"Width": 700,
+			"Height": 700,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 10,
+			"Y": 10
+		}
+	},
+
+	"EmptyHealthBar": {
+
+		"Tag": "ScreenComponent",
+
+		"Sprite": {
+			"Path": "EmptyHealthBar",
+			"Width": 64,
+			"Height": 512,
+			"Depth": 0.6,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 750,
+			"Y": 94
+		},
+	},
+
+	"PlayerHealthBar": {
+		"Tag": "ScreenComponent",
+
+		"Sprite": {
+			"Path": "PlayerHealthBar",
+			"Width": 64,
+			"Height": 512,
+			"Depth": 0.7,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 750,
+			"Y": 94
+		},
+
+		"Scripts": ["PlayerHealthBar"]
+	},
+
+	"Score": {
+		"Tag": "Score", 
+
+		"Position": {
+			"X": 890,
+			"Y": 150
+		},
+
+		"Scripts": ["Score"] 
+	}
+}

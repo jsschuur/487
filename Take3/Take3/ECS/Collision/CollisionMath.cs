@@ -32,7 +32,10 @@ namespace Take3.ECS.Collision
 
         public static bool CheckCollision(CircleCollider h1, CircleCollider h2)
         {
-            return (Math.Pow((h1.Position.X - h2.Position.X), 2) + Math.Pow((h1.Position.Y - h2.Position.Y), 2) < Math.Pow((h1.Radius + h2.Radius), 2));
+            var h1Position = h1.GetPosition();
+            var h2Position = h2.GetPosition();
+
+            return (Math.Pow((h1Position.X - h2Position.X), 2) + Math.Pow((h1Position.Y - h2Position.Y), 2) < Math.Pow((h1.Radius + h2.Radius), 2));
         }
 
         public static bool CheckCollision(BoxCollider h1, CircleCollider h2)

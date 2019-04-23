@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,22 +9,30 @@ namespace Take3.ECS
 {
     public class GameObject 
     {
-        private IList<Component> _components;
+        private IList<Component> components;
+
         private bool isAlive;
-        private uint _id;
+        private bool isActive;
+
 
         public string Tag { get; set; }
+        
         public bool IsAlive { get { return isAlive; } }
-        public bool IsActive { get; set; }
+        public bool IsActive { get { return isActive; } set { isActive = value; } }
+
+        public double disableTime;
+
+        private GameTime objectTime;
 
         public GameObject()
         {
-            _components = new List<Component>();
+            components = new List<Component>();
             AddComponent<Transform>();
-            isAlive = true;
+            objectTime = new GameTime();
+            isAlive = isActive = true;
         }
 
-        public void Die()
+        public virtual void Die()
         {
             isAlive = false;
         }
@@ -32,29 +41,61 @@ namespace Take3.ECS
         {
             Component c = (T)Activator.CreateInstance(typeof(T));
             c.Initialize(this);
-            _components.Add(c);
+            components.Add(c);
             return c;
         }
 
         public void AddComponent(Component c)
         {
             c.Initialize(this);
-            _components.Add(c);
+            components.Add(c);
         }
 
         public Component GetComponent<T>() where T : Component
         {
-            return _components.OfType<T>().First(); 
+            return components.OfType<T>().First(); 
         }
 
         public bool HasComponent<T>() where T : Component
         {
-            return _components.OfType<T>().Any();
+            return components.OfType<T>().Any();
         }
 
         public List<Component> GetComponents<T>() where T : Component
         {
-            return _components.OfType<T>().ToList<Component>();
+            return components.OfType<T>().ToList<Component>();
+        }
+
+        public void SetDisableTimer(double milliseconds)
+        {
+            disableTime = milliseconds;
+            isActive = false;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if(isActive)
+            {
+                objectTime.TotalGameTime += gameTime.ElapsedGameTime;
+                objectTime.ElapsedGameTime = gameTime.ElapsedGameTime;
+
+                foreach (var behavior in GetComponents<Updatable>())
+                {
+                    if (behavior.IsActive)
+                    {
+                        ((Updatable)behavior).Update(objectTime);
+                    }
+                }
+            }
+            if(disableTime > 0)
+            {
+                disableTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+            }
+            else if(disableTime < 0)
+            {
+                disableTime = 0;
+                isActive = true;
+            }
         }
     }
 }

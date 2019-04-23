@@ -60,7 +60,31 @@
 		
 		"Scripts": ["Projectile"]
 	},
+	"BlueProjectile": {
 
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/BlueProjectile",
+			"Width": 16,
+			"Height": 16,
+			"Scale": 1,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 2
+		},
+		
+		"Scripts": ["Projectile"]
+	},
 
 	"GreenProjectile": {
 
@@ -86,5 +110,31 @@
 		},
 		
 		"Scripts": ["Projectile"]
+	},
+
+	"GreenHomingProjectile": {
+
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/GreenProjectile",
+			"Width": 16,
+			"Height": 16,
+			"Scale": 1,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 2
+		},
+		
+		"Scripts": ["HomingProjectile"]
 	},
 }

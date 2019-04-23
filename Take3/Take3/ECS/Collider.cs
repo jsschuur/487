@@ -11,20 +11,21 @@ namespace Take3.ECS
     {
         public delegate void Collision(GameObject collider);
 
-        protected Transform _transform;
-
-        public float Buffer { get; set; }
-
-        public Collision OnCollision { get; set; }
+        protected Transform transform;
 
         protected Vector2 size;
+        protected float buffer;
+
+        public float Buffer { get { return buffer; } set { buffer = value; } }
+        public Collision OnCollision { get; set; }
+
 
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
 
-            _transform = (Transform)owner.GetComponent<Transform>();
-            var renderer = (Renderer)owner.GetComponent<Renderer>();
+            transform = (Transform)owner.GetComponent<Transform>();
+            var renderer = (SpriteRenderer)owner.GetComponent<SpriteRenderer>();
             size = new Vector2(renderer.Sprite.SpriteRectangle.Width * renderer.Sprite.Scale, 
                                renderer.Sprite.SpriteRectangle.Height * renderer.Sprite.Scale);
         }

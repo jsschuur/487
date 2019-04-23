@@ -37,6 +37,45 @@
 		}
 	},
 
+	"Health": {
+		"Tag": "ScreenComponent",
+
+		"Sprite": {
+			"Path": "EmptyHealthBar",
+			"Width": 256,
+			"Height": 32,
+			"Depth": 0.7,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 750,
+			"Y": 300
+		}
+	},
+
+	"PlayerHealthBar": {
+		"Tag": "ScreenComponent",
+
+		"Sprite": {
+			"Path": "HealthStar",
+			"Width": 256,
+			"Height": 32,
+			"Depth": 0.6,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 752,
+			"Y": 302
+		},
+
+		"Scripts": ["PlayerHealthBar"]
+	},
+
+
 	"PurpleDiamondProjectilePowerUp" : {
 
 		"Tag": "PowerUp",

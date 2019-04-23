@@ -1,0 +1,300 @@
+{
+
+	"ResolutionScript": {
+		"Tag": "ResolutionScript",
+
+		"Position": 
+		{
+			"X": 348,
+			"Y": 218
+		},
+
+		"Scripts": ["ResolutionOptions"]
+	},
+
+	"OptionsBackground": {
+		"Tag": "OptionsBackground",
+
+		"Sprite": {
+			"Path": "OptionsMenu",
+			"Width": 1280,
+			"Height": 720,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 0,
+			"Y": 0
+		}
+	},
+
+	"LeftResolutionButton": {
+
+		"Tag": "LeftResolutionButton",
+
+		"Sprite": {
+			"Path": "Buttons/LeftCarrotButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 114,
+			"Y": 255
+		},
+
+		"Scripts": ["SwitchButton"]
+	},
+
+	"RightResolutionButton": {
+
+		"Tag": "RightResolutionButton",
+
+		"Sprite": {
+			"Path": "Buttons/RightCarrotButton",
+			"Width": 64,
+			"Height": 65,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 189,
+			"Y": 255
+		},
+
+		"Scripts": ["SwitchButton"]
+	},
+
+	"LeftSpeedButton": {
+
+		"Tag": "LeftSpeedButton",
+
+		"Sprite": {
+			"Path": "Buttons/LeftCarrotButton",
+			"Width": 64,
+			"Height": 65,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 109,
+			"Y": 433
+		},
+
+		"Scripts": ["SwitchButton"]
+	},
+
+	"RightSpeedButton": {
+
+		"Tag": "RightSpeedButton",
+
+		"Sprite": {
+			"Path": "Buttons/RightCarrotButton",
+			"Width": 64,
+			"Height": 65,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 184,
+			"Y": 433
+		},
+
+		"Scripts": ["SwitchButton"]
+	},
+
+	"OptionsBackButton": {
+
+		"Tag": "OptionsBackButton",
+
+		"Sprite": {
+			"Path": "Buttons/BackButton",
+			"Width": 150,
+			"Height": 70,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 85,
+			"Y": 590
+		},
+
+		"Scripts": ["BackButton"]
+	},
+	"OptionsOkButton": {
+
+		"Tag": "OptionsOkButton",
+
+		"Sprite": {
+			"Path": "Buttons/OkButton",
+			"Width": 150,
+			"Height": 70,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 250,
+			"Y": 590
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+	"EditLeftButton": {
+
+		"Tag": "EditLeftButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 218
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+	
+	"EditRightButton": {
+
+		"Tag": "EditRightButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 286
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+	
+	"EditUpButton": {
+
+		"Tag": "EditUpButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 355
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+	"EditDownButton": {
+
+		"Tag": "EditDownButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 423
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+	"EditSlowButton": {
+
+		"Tag": "EditSlowButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 490
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+	"EditShootButton": {
+
+		"Tag": "EditShootButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 558
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+
+	"EditPauseButton": {
+
+		"Tag": "EditPauseButton",
+
+		"Sprite": {
+			"Path": "Buttons/KeybindingButton",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 767,
+			"Y": 627
+		},
+
+		"Scripts": ["LeftResolutionButton"]
+	},
+}

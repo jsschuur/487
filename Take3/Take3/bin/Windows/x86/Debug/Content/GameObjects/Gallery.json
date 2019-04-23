@@ -1,0 +1,57 @@
+{
+	"Gallery": {
+		"Tag": "Gallery", 
+
+		"Scripts": ["Gallery"]
+	},
+
+	"GalleryBackground": {
+
+		"Tag": "Gallery",
+
+		"Sprite": {
+			"Path": "GalleryBackground",
+			"Width": 1280,
+			"Height": 720,
+			"Depth": 0.0,
+			"Scale": 1,
+			"Rotatable": false 
+		},
+	},
+
+	"GalleryButton": {
+
+		"Tag": "GalleryButton",
+		"Sprite": {
+			"Path": "Buttons/GalleryButton",
+			"Width": 72,
+			"Height": 72,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Scripts": ["GalleryButton"]
+	},
+
+	"GalleryBackButton": {
+
+		"Tag": "Gallery",
+
+		"Sprite": {
+			"Path": "Buttons/BackButton",
+			"Width": 150,
+			"Height": 70,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 85,
+			"Y": 590
+		},
+
+		"Scripts": ["BackButton"]
+	},
+}

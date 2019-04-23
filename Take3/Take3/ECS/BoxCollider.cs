@@ -13,11 +13,19 @@ namespace Take3.ECS
         {
             get
             {
-                return new Rectangle((int)(_transform.Position.X + Buffer), 
-                                     (int)(_transform.Position.Y + Buffer), 
-                                     (int)(size.X - Buffer * 2), 
-                                     (int)(size.Y - Buffer * 2));
+                return new Rectangle((int)(transform.Position.X + buffer), 
+                                     (int)(transform.Position.Y + buffer), 
+                                     (int)(size.X - buffer * 2), 
+                                     (int)(size.Y - buffer * 2));
             }
+        }
+
+        public Rectangle GetBox()
+        {
+            return new Rectangle((int)(transform.Position.X + buffer),
+                                 (int)(transform.Position.Y + buffer),
+                                 (int)(size.X * transform.Scale - buffer * 2),
+                                 (int)(size.Y * transform.Scale - buffer * 2));
         }
     }
 }

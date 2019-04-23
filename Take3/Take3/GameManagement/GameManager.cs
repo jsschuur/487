@@ -14,7 +14,7 @@ namespace Take3.GameManagement
 
     public enum State
     {
-        Game, Menu, Pause, Loading, Exit
+        Game, Menu, Options, Loading, Exit, GameOver, Gallery
     }
 
 
@@ -24,10 +24,14 @@ namespace Take3.GameManagement
 
         private static Dictionary<State, GameState> gameStates;
         private static Dictionary<string, Prefabrication> prefabrications;
+
         private static GameState currentState;
 
         private static State state;
+
         private static GameTime playingTime;
+        private static float playingTimeScale;
+
         private static Configs configs;
 
         private static CollisionManager collisionManager;
@@ -36,7 +40,11 @@ namespace Take3.GameManagement
 
         public static List<Prefabrication> Prefabrications { get { return prefabrications.Values.ToList(); } }
 
-        public static void Init(Game game)
+        private static event EventHandler<GameEventArgs> GameEvent;
+
+        private static bool gamePaused;
+
+        public static void Init(Game1 game)
         {
             foreach(State value in Enum.GetValues(typeof(State)))
             {
@@ -49,6 +57,7 @@ namespace Take3.GameManagement
             configs.SetMouseVisible();
 
             exit = new Action(game.Exit);
+            GameEvent += game.GameEventHandler;
 
             state = State.Menu;
             currentState = gameStates[state];
@@ -61,6 +70,8 @@ namespace Take3.GameManagement
             collisionManager.AddLayer("PowerUp", "Player");
             collisionManager.AddLayer("PlayerProjectile", "ProjectileBoundary");
             collisionManager.AddLayer("Player", "EnemyProjectile");
+
+            playingTimeScale = 1;
         }
 
         static GameManager() { }
@@ -70,19 +81,27 @@ namespace Take3.GameManagement
             gameStates = new Dictionary<State, GameState>();
         }
 
+        public static void SetPlayingTimeScale(float scale)
+        {
+            playingTimeScale = scale;
+        }
+
         public static void SwitchState(State newState)
         {
-            currentState = gameStates[newState];
+            
             state = newState;
+            currentState = gameStates[newState];
 
             if(newState == State.Game)
             {
+                GameEvent?.Invoke(gameManager, new GameEventArgs("InitializeGame"));
+                gamePaused = false;
                 configs.SetMouseInvisible();
             }
 
             if(newState == State.Exit)
             {
-                exit();
+                GameEvent?.Invoke(gameManager, new GameEventArgs("Exit"));
             }
             else
             {
@@ -96,14 +115,29 @@ namespace Take3.GameManagement
             {
                 playingTime.TotalGameTime += gameTime.ElapsedGameTime;
                 playingTime.ElapsedGameTime = gameTime.ElapsedGameTime;
-               
+
+                playingTime.TotalGameTime = TimeSpan.FromTicks((long)(playingTime.TotalGameTime.Ticks * playingTimeScale));
+                playingTime.ElapsedGameTime = TimeSpan.FromTicks((long)(playingTime.ElapsedGameTime.Ticks * playingTimeScale));
+
+
                 currentState.Update(playingTime);
                 collisionManager.CheckCollisions();
+
+                if (Input.KeyDown("p") && !gamePaused)
+                {
+                    gamePaused = true;
+                    Instantiate(GetPrefab("Pause"));
+                }
             }
             else
             {
                 currentState.Update(gameTime);
             }
+        }
+
+        public static void UnPause()
+        {
+            gamePaused = false;
         }
 
         public static void Draw(SpriteBatch spriteBatch)
@@ -129,10 +163,16 @@ namespace Take3.GameManagement
         public static GameObject Instantiate(Prefabrication prefab, State state)
         {
             GameObject newObject = CloneGameObject.Clone(prefab);
-            gameStates[state].AddGameObject(newObject);
+            gameStates[state].AddGameObjectWithPriority(newObject);
             return newObject;
         }
 
+        public static GameObject InstantiateWithPriority(Prefabrication prefab, State state)
+        {
+            GameObject newObject = CloneGameObject.Clone(prefab);
+            gameStates[state].AddGameObjectWithPriority(newObject);
+            return newObject;
+        }
 
         public static GameObject Instantiate(Prefabrication prefab, Vector2 origin, State state)
         {
@@ -164,14 +204,34 @@ namespace Take3.GameManagement
             }
         }
 
+        public static void ClearObjects()
+        {
+            currentState.ClearObjects();
+        }
+
+        public static void ClearObjects(State state)
+        {
+            gameStates[state].ClearObjects();
+        }
+
         public static List<GameObject> GetObjectsByTag(string tag)
         {
             return currentState.GetObjectsByTag(tag);
         }
 
+        public static List<GameObject> GetGameObjects()
+        {
+            return currentState.GameObjects;
+        }
+
         public static GameObject GetObjectByTag(string tag)
         {
             return currentState.GetObjectByTag(tag);
+        }
+
+        public static List<Component> GetComponents<T>() where T : Component
+        {
+            return currentState.GetComponents<T>();
         }
 
         public static Prefabrication GetPrefab(string name)

@@ -40,29 +40,61 @@ namespace Take3
             TextureManager.Init(Content);
 
         
-            JSONLoader.LoadJSONObjects("Content/mainmenu.json");
-            JSONLoader.LoadJSONObjects("Content/Projectiles.json");
-            JSONLoader.LoadJSONObjects("Content/wave1.json");
-            JSONLoader.LoadJSONObjects("Content/GameObjects.json");
-            JSONLoader.LoadJSONObjects("Content/GameBoundaries.json");
-            JSONLoader.LoadJSONObjects("Content/Player.json");
-            JSONLoader.LoadJSONObjects("Content/Enemies.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/MainMenu.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/Projectiles.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/wave1.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/GameBoundaries.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/Player.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/Enemies.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/GameScreen.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/Gallery.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/Pause.json");
+            JSONLoader.LoadJSONObjects("Content/GameObjects/OptionsMenu.json");
 
 
-            GameManager.Instantiate(GameManager.GetPrefab("PlayButton"), State.Menu);
-            GameManager.Instantiate(GameManager.GetPrefab("ExitButton"), State.Menu);
-            GameManager.Instantiate(GameManager.GetPrefab("OptionsButton"), State.Menu);
-            GameManager.Instantiate(GameManager.GetPrefab("MainMenu"), State.Menu);
+            InitializeOptions();
+            InitializeGallery();
+            InitializeMainMenu();
+
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
+            Resolution.Update(graphics);
+
+            GameObject playButton = new GameObject();
+        }
+        
+
+        public void GameEventHandler(object sender, GameEventArgs e)
+        {
+            switch(e.Event)
+            {
+                case "InitializeGame":
+                    InitializeGame(); break;
+                case "Exit":
+                    Exit(); break;
+            }
+        }
+
+        private void InitializeGallery()
+        {
+            foreach(var obj in GameManager.GetPrefabsByTag("Gallery"))
+            {
+                GameManager.Instantiate(obj, State.Gallery);
+            }
+        }
+
+        private void InitializeGame()
+        {
+            GameManager.ClearObjects(State.Game);
 
             GameManager.Instantiate(GameManager.GetPrefab("LeftPlayerBoundary"), State.Game);
             GameManager.Instantiate(GameManager.GetPrefab("TopPlayerBoundary"), State.Game);
             GameManager.Instantiate(GameManager.GetPrefab("RightPlayerBoundary"), State.Game);
             GameManager.Instantiate(GameManager.GetPrefab("BottomPlayerBoundary"), State.Game);
 
-            GameManager.Instantiate(GameManager.GetPrefab("Wave1"), State.Game);
+            GameManager.Instantiate(GameManager.GetPrefab("Score"), State.Game);
 
-
-
+            GameManager.Instantiate(GameManager.GetPrefab("Player"), State.Game);
 
             foreach (var obj in GameManager.GetPrefabsByTag("GameWindow"))
             {
@@ -73,14 +105,45 @@ namespace Take3
             {
                 GameManager.Instantiate(obj, State.Game);
             }
+            foreach (var obj in GameManager.GetPrefabsByTag("ScreenComponent"))
+            {
+                GameManager.Instantiate(obj, State.Game);
+            }
 
 
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
-            Resolution.Update(graphics);
 
-            GameObject playButton = new GameObject();
+            GameManager.Instantiate(GameManager.GetPrefab("Wave1"), State.Game);
         }
+
+        private void InitializeOptions()
+        {
+            GameManager.SwitchState(State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("OptionsBackground"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("LeftResolutionButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("RightResolutionButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("LeftSpeedButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("RightSpeedButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("OptionsBackButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("OptionsOkButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditLeftButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditRightButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditUpButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditDownButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditSlowButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditShootButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("EditPauseButton"), State.Options);
+            GameManager.Instantiate(GameManager.GetPrefab("ResolutionScript"), State.Options);
+            GameManager.SwitchState(State.Menu);
+        }
+
+        private void InitializeMainMenu()
+        {
+            foreach(var prefab in GameManager.GetPrefabsByTag("MainMenu"))
+            {
+                GameManager.Instantiate(prefab, State.Menu);
+            }
+        }
+
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -129,13 +192,13 @@ namespace Take3
         {
             GraphicsDevice.Clear(Color.IndianRed);
 
-            spriteBatch.Begin(samplerState: SamplerState.LinearWrap, transformMatrix: Resolution.ScaleMatrix, sortMode: SpriteSortMode.FrontToBack);
+            spriteBatch.Begin(transformMatrix: Resolution.ScaleMatrix, sortMode: SpriteSortMode.FrontToBack);
 
             GameManager.Draw(spriteBatch);
 
             spriteBatch.End();
 
-            Console.WriteLine(1 / (float)gameTime.ElapsedGameTime.TotalSeconds + "\n");
+            
 
             base.Draw(gameTime);
         }

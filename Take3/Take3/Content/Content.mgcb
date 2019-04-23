@@ -13,32 +13,42 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Enemies.json
-/copy:Enemies.json
-
-#begin GameBoundaries.json
-/copy:GameBoundaries.json
-
-#begin GameObjects.json
-/copy:GameObjects.json
-
-#begin mainmenu.json
-/copy:mainmenu.json
-
-#begin Player.json
-/copy:Player.json
-
-#begin Textures/BasicProjectile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
+#begin Fonts/GameFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/BasicProjectile.png
+/processorParam:TextureFormat=Compressed
+/build:Fonts/GameFont.spritefont
+
+#begin GameObjects/Enemies.json
+/copy:GameObjects/Enemies.json
+
+#begin GameObjects/Gallery.json
+/copy:GameObjects/Gallery.json
+
+#begin GameObjects/GameBoundaries.json
+/copy:GameObjects/GameBoundaries.json
+
+#begin GameObjects/GameScreen.json
+/copy:GameObjects/GameScreen.json
+
+#begin GameObjects/MainMenu.json
+/copy:GameObjects/MainMenu.json
+
+#begin GameObjects/OptionsMenu.json
+/copy:GameObjects/OptionsMenu.json
+
+#begin GameObjects/Pause.json
+/copy:GameObjects/Pause.json
+
+#begin GameObjects/Player.json
+/copy:GameObjects/Player.json
+
+#begin GameObjects/Projectiles.json
+/copy:GameObjects/Projectiles.json
+
+#begin GameObjects/wave1.json
+/copy:GameObjects/wave1.json
 
 #begin Textures/BasicProjectile.png
 /importer:TextureImporter
@@ -64,30 +74,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/BlackCircle.png
 
-#begin Textures/BlackCircle.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/BlackCircle.png
-
-#begin Textures/BlueDiamond.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/BlueDiamond.png
-
 #begin Textures/BlueDiamond.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -112,7 +98,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Button.png
 
-#begin Textures/Button.png
+#begin Textures/Buttons/BackButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -122,9 +108,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Button.png
+/build:Textures/Buttons/BackButton.png
 
-#begin Textures/EmptyHealthBar.PNG
+#begin Textures/Buttons/ExitButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -134,7 +120,115 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/EmptyHealthBar.PNG
+/build:Textures/Buttons/ExitButton.png
+
+#begin Textures/Buttons/GalleryButton.PNG
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/GalleryButton.PNG
+
+#begin Textures/Buttons/KeybindingButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/KeybindingButton.png
+
+#begin Textures/Buttons/LeftCarrotButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/LeftCarrotButton.png
+
+#begin Textures/Buttons/MenuGalleryButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/MenuGalleryButton.png
+
+#begin Textures/Buttons/OptionsButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/OptionsButton.png
+
+#begin Textures/Buttons/PlayButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/PlayButton.png
+
+#begin Textures/Buttons/ResumeButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/ResumeButton.png
+
+#begin Textures/Buttons/RetryButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/RetryButton.png
+
+#begin Textures/Buttons/RightCarrotButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Buttons/RightCarrotButton.png
 
 #begin Textures/EmptyHealthBar.PNG
 /importer:TextureImporter
@@ -160,7 +254,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/ExitButton.png
 
-#begin Textures/ExitButton.png
+#begin Textures/GalleryBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -170,31 +264,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/ExitButton.png
-
-#begin Textures/GallaryButton.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/GallaryButton.PNG
-
-#begin Textures/GameOverlay.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/GameOverlay.png
+/build:Textures/GalleryBackground.png
 
 #begin Textures/GameOverlay.png
 /importer:TextureImporter
@@ -220,18 +290,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/GameWindowBackground.png
 
-#begin Textures/GameWindowBackground.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/GameWindowBackground.png
-
 #begin Textures/GreenSquare.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -244,7 +302,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/GreenSquare.png
 
-#begin Textures/GreenSquare.png
+#begin Textures/Health.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -254,9 +312,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/GreenSquare.png
+/build:Textures/Health.PNG
 
-#begin Textures/Jellyfish.png
+#begin Textures/HealthStar.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -266,7 +324,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Jellyfish.png
+/build:Textures/HealthStar.png
 
 #begin Textures/Jellyfish.png
 /importer:TextureImporter
@@ -292,18 +350,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/MainMenu.PNG
 
-#begin Textures/MainMenu.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/MainMenu.PNG
-
 #begin Textures/Midboss.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -315,30 +361,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Midboss.PNG
-
-#begin Textures/Midboss.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Midboss.PNG
-
-#begin Textures/nulltexture.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/nulltexture.png
 
 #begin Textures/nulltexture.png
 /importer:TextureImporter
@@ -364,7 +386,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/OptionsButton.png
 
-#begin Textures/OptionsButton.png
+#begin Textures/OptionsMenu.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -374,19 +396,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/OptionsButton.png
-
-#begin Textures/PlayButton.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/PlayButton.png
+/build:Textures/OptionsMenu.png
 
 #begin Textures/PlayButton.png
 /importer:TextureImporter
@@ -412,7 +422,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Player.PNG
 
-#begin Textures/Player.PNG
+#begin Textures/PlayerHealthBar.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -422,19 +432,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Player.PNG
-
-#begin Textures/Projectiles/BlueProjectile.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/BlueProjectile.PNG
+/build:Textures/PlayerHealthBar.png
 
 #begin Textures/Projectiles/BlueProjectile.PNG
 /importer:TextureImporter
@@ -460,18 +458,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/GreenProjectile.PNG
 
-#begin Textures/Projectiles/GreenProjectile.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/GreenProjectile.PNG
-
 #begin Textures/Projectiles/GreenSquareProjectile.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -483,30 +469,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/GreenSquareProjectile.png
-
-#begin Textures/Projectiles/GreenSquareProjectile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/GreenSquareProjectile.png
-
-#begin Textures/Projectiles/GreySquareProjectile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/GreySquareProjectile.png
 
 #begin Textures/Projectiles/GreySquareProjectile.png
 /importer:TextureImporter
@@ -532,18 +494,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/PinkSquareProjectile.png
 
-#begin Textures/Projectiles/PinkSquareProjectile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/PinkSquareProjectile.png
-
 #begin Textures/Projectiles/PurpleDiamondProjectile.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -555,30 +505,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/PurpleDiamondProjectile.PNG
-
-#begin Textures/Projectiles/PurpleDiamondProjectile.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/PurpleDiamondProjectile.PNG
-
-#begin Textures/Projectiles/RedProjectile.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/RedProjectile.PNG
 
 #begin Textures/Projectiles/RedProjectile.PNG
 /importer:TextureImporter
@@ -604,18 +530,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/WhiteDiamondProjectile.PNG
 
-#begin Textures/Projectiles/WhiteDiamondProjectile.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/Projectiles/WhiteDiamondProjectile.PNG
-
 #begin Textures/Projectiles/WhiteProjectile.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -628,7 +542,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Projectiles/WhiteProjectile.PNG
 
-#begin Textures/Projectiles/WhiteProjectile.PNG
+#begin Textures/QuitButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -638,19 +552,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Projectiles/WhiteProjectile.PNG
-
-#begin Textures/RedCircle.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/RedCircle.png
+/build:Textures/QuitButton.png
 
 #begin Textures/RedCircle.png
 /importer:TextureImporter
@@ -676,7 +578,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/RedExpandingCircle.png
 
-#begin Textures/RedExpandingCircle.png
+#begin Textures/ResumeButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -686,7 +588,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/RedExpandingCircle.png
+/build:Textures/ResumeButton.png
+
+#begin Textures/RetryButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/RetryButton.png
 
 #begin Textures/TestPowerUp.png
 /importer:TextureImporter
@@ -712,18 +626,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/WhiteBullet.png
 
-#begin Textures/WhiteBullet.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/WhiteBullet.png
-
 #begin Textures/YellowHexagon.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -735,19 +637,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/YellowHexagon.png
-
-#begin Textures/YellowHexagon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/YellowHexagon.png
-
-#begin wave1.json
-/copy:wave1.json
 

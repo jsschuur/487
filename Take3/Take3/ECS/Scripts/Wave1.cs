@@ -16,10 +16,10 @@ namespace Take3.ECS.Scripts
 
             var spawnArray = new[]
             {
-                new Spawn("Player", new Vector2(300, 300), 0),
-                 new Spawn("PurpleDiamondProjectilePowerUp", new Vector2(200, 200), 200),
-                new Spawn("BlueDiamond", new Vector2(200, 200), 1000),
-
+                new Spawn("BlackCircle", new Vector2(500, 100), 0),
+                new Spawn("BlackCircle", new Vector2(300, 100), 0),
+                new Spawn("BlackCircle", new Vector2(400, 100), 0),
+                new Spawn("FlipGameScreen", new Vector2(400, 100), 1000),
             };
 
             foreach(var spawn in spawnArray)

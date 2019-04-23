@@ -1,0 +1,44 @@
+{
+	"Pause": {
+		"Tag": "Pause",
+		"Scripts": ["Pause"]
+	},
+
+	"QuitButton": {
+		"Tag": "Pause",
+		"Sprite": {
+			"Path": "QuitButton",
+			"Width": 258,
+			"Height": 34,
+			"Depth": 0.6,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 511,
+			"Y": 447
+		},
+
+		"Scripts": ["QuitButton"]
+	},
+
+	"ResumeButton": {
+		"Tag": "Pause",
+		"Sprite": {
+			"Path": "ResumeButton",
+			"Width": 258,
+			"Height": 34,
+			"Scale": 1,
+			"Depth": 0.6,
+			"Rotatable": false, 
+		},
+
+		"Position": {
+			"X": 511,
+			"Y": 491
+		},
+		
+		"Scripts": ["ResumeButton"]
+	},
+}

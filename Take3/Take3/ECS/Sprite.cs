@@ -36,20 +36,14 @@ namespace Take3.ECS
             LayerDepth = layerDepth;
         }
 
-        public Vector2 GetCenter
+        public Vector2 GetCenter()
         {
-            get
-            {
-                return new Vector2(SpriteRectangle.Width / 2f * Scale, SpriteRectangle.Height / 2f * Scale);
-            }
+            return new Vector2(SpriteRectangle.Width / 2f * Scale, SpriteRectangle.Height / 2f * Scale);
         }
 
-        public Vector2 GetDimensions
+        public Vector2 GetDimensions()
         {
-            get
-            {
-                return new Vector2(SpriteRectangle.Width * Scale, SpriteRectangle.Height * Scale); 
-            }
+            return new Vector2(SpriteRectangle.Width * Scale, SpriteRectangle.Height * Scale); 
         }
     }
 }

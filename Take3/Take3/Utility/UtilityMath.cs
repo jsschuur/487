@@ -40,10 +40,8 @@ namespace Take3.Utility
                 var newX = Math.Cos(angle) * (point.X - origin.X) - Math.Sin(angle) * (point.Y - origin.Y) + origin.X;
                 var newY = Math.Sin(angle) * (point.X - origin.X) + Math.Cos(angle) * (point.Y - origin.Y) + origin.Y;
 
-                point.X = (float)newX;
-                point.Y = (float)newY;
-
-                return point;
+                var newPoint = new Vector2((float)newX, (float)newY);
+                return newPoint;
             }
 
             public static Vector2 Angle2Vector(double angle)

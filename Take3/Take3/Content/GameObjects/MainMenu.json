@@ -1,0 +1,91 @@
+{	
+	"PlayButton": {
+		"Tag": "MainMenu",
+		"Sprite": {
+			"Path": "Buttons/PlayButton",
+			"Width": 512,
+			"Height": 64,
+			"Depth": 0.1,
+			"Scale": 1,
+			"Rotatable": false
+		},
+
+		"Position": {
+			"X": 384,
+			"Y": 310
+		},
+
+		"Scripts": ["PlayButton"]
+	},
+	
+	"ExitButton": {
+		"Tag": "MainMenu",
+		"Sprite": {
+			"Path": "Buttons/ExitButton",
+			"Width": 512,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.1,
+			"Rotatable": false, 
+		},
+
+		"Position": {
+			"X": 384,
+			"Y": 406
+		},
+
+		"Scripts": ["ExitButton"]
+	},
+	"OptionsButton": {
+		"Tag": "MainMenu",
+		"Sprite": {
+			"Path": "Buttons/OptionsButton",
+			"Width": 512,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.1,
+			"Rotatable": false, 
+		},
+
+		"Position": {
+			"X": 384,
+			"Y": 502
+		},
+
+		"Scripts": ["OptionsButton"]
+	},
+
+	"MenuGalleryButton": {
+		"Tag": "MainMenu",
+		"Sprite": {
+			"Path": "Buttons/MenuGalleryButton",
+			"Width": 512,
+			"Height": 64,
+			"Scale": 1,
+			"Depth": 0.1,
+			"Rotatable": false, 
+		},
+
+		"Position": {
+			"X": 384,
+			"Y": 598
+		},
+
+		"Scripts": ["MenuGalleryButton"]
+	},
+	"MainMenu": {
+		"Tag": "MainMenu",
+		"Sprite": {
+			"Path": "MainMenu",
+			"Width": 1280,
+			"Height": 720,
+			"Scale": 1,
+			"Depth": 0.0,
+			"Rotatable": false
+		},
+		"Position": {
+			"X": 0,
+			"Y": 0
+		},
+	}
+}

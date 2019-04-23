@@ -1,0 +1,25 @@
+{
+	"Player": {
+		"Tag": "Player",
+
+		"Sprite": {
+			"Path": "Player",
+			"Width": 64,
+			"Height": 64,
+			"Depth": 0.2,
+			"Scale": 0.8,
+			"Rotatable": false 
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Box",
+			"Buffer": 16
+		},
+		"Scripts": ["Player"]
+	},
+}

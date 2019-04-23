@@ -31,8 +31,10 @@ namespace Take3.Utility
                         CloneBoxCollider(copy, bc); break;
                     case LinearProjectile lp:
                         CloneLinearProjectile(copy, lp); break;
-                    case Renderer r:
-                        CloneRenderer(copy, r); break;
+                    case SpriteRenderer sr:
+                        CloneSpriteRenderer(copy, sr); break;
+                    case TextRenderer tr:
+                        CloneTextRenderer(copy, tr); break;
                     case LinearMovement lm:
                         CloneLinearMovement(copy, lm); break;
                     case Velocity v:
@@ -52,6 +54,14 @@ namespace Take3.Utility
 
             newVelocity.Speed = velocity.Speed;
             newVelocity.Direction = new Vector2(velocity.Direction.X, velocity.Direction.Y);
+        }
+
+        private static void CloneTextRenderer(GameObject copy, TextRenderer textRenderer)
+        {
+            var newTextRenderer = (TextRenderer)copy.AddComponent<TextRenderer>();
+            newTextRenderer.Font = textRenderer.Font;
+            newTextRenderer.Text = textRenderer.Text;
+            newTextRenderer.TextColor = textRenderer.TextColor;
         }
 
         private static void CloneLinearMovement(GameObject copy, LinearMovement linearMovement)
@@ -101,9 +111,9 @@ namespace Take3.Utility
             newLinearProjectile.Speed = original.Speed;
         }
 
-        private static void CloneRenderer(GameObject copy, Renderer original)
+        private static void CloneSpriteRenderer(GameObject copy, SpriteRenderer original)
         {
-            var newRenderer = (Renderer)copy.AddComponent<Renderer>();
+            var newRenderer = (SpriteRenderer)copy.AddComponent<SpriteRenderer>();
             Sprite newSprite = new Sprite(original.Sprite.Texture, 
                                           new Rectangle(original.Sprite.SpriteRectangle.X,
                                           original.Sprite.SpriteRectangle.Y,

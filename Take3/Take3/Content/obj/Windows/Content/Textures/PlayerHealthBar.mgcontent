@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jack/Documents/Take3/Take3/Content/Textures/PlayerHealthBar.PNG</SourceFile>
-  <SourceTime>2019-03-10T12:36:44.9175034-07:00</SourceTime>
-  <DestFile>C:/Users/Jack/Documents/Take3/Take3/Content/bin/Windows/Content/Textures/PlayerHealthBar.xnb</DestFile>
-  <DestTime>2019-04-08T20:30:13.304553-07:00</DestTime>
+  <SourceFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/PlayerHealthBar.png</SourceFile>
+  <SourceTime>2019-04-21T23:52:31.0671274-07:00</SourceTime>
+  <DestFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/bin/Windows/Content/Textures/PlayerHealthBar.xnb</DestFile>
+  <DestTime>2019-04-21T23:53:56.7959577-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2019-01-19T13:27:06-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

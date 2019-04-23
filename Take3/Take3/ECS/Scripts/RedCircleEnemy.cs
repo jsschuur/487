@@ -15,8 +15,8 @@ namespace Take3.ECS.Scripts
         private Prefabrication projectile;
 
         private Transform transform;
-        private Renderer renderer;
-        private Renderer projectileRenderer;
+        private SpriteRenderer renderer;
+        private SpriteRenderer projectileRenderer;
 
         private float currentAngle;
         private float offset = .3f;
@@ -30,10 +30,10 @@ namespace Take3.ECS.Scripts
             projectile = GameManager.GetPrefab("PurpleDiamondProjectile");
 
             transform = (Transform)GetComponent<Transform>();
-            renderer = (Renderer)GetComponent<Renderer>();
-            projectileRenderer = (Renderer)projectile.GetComponent<Renderer>();
+            renderer = (SpriteRenderer)GetComponent<SpriteRenderer>();
+            projectileRenderer = (SpriteRenderer)projectile.GetComponent<SpriteRenderer>();
 
-            Health = 20;
+            health = 7;
         }
 
         public override void Update(GameTime gameTime)
@@ -42,7 +42,7 @@ namespace Take3.ECS.Scripts
 
             if(gameTime.TotalGameTime.TotalMilliseconds > lastAttackTime + cooldown)
             {
-                var projectileOrigin = renderer.Sprite.GetCenter + transform.Position - projectileRenderer.Sprite.GetCenter;
+                var projectileOrigin = renderer.Sprite.GetCenter() + transform.Position - projectileRenderer.Sprite.GetCenter();
 
                 for (currentAngle = 0; currentAngle < Math.PI * 2; currentAngle += offset)
                 {

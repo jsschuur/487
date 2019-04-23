@@ -14,7 +14,7 @@ namespace Take3.ECS
 
         private int currentIndex;
 
-        private Renderer renderer;
+        private SpriteRenderer renderer;
         private Transform transform;
 
         private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
@@ -25,7 +25,7 @@ namespace Take3.ECS
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            renderer = (Renderer)GetComponent<Renderer>();
+            renderer = (SpriteRenderer)GetComponent<SpriteRenderer>();
             transform = (Transform)GetComponent<Transform>();
         }
 

@@ -19,6 +19,9 @@ namespace Take3.ECS.Scripts
 
         private Sprite projectileSprite;
 
+        private int health;
+
+        public int Health { get { return health; } }
 
         public Prefabrication PlayerProjectile { get; set; }
 
@@ -26,8 +29,16 @@ namespace Take3.ECS.Scripts
         private double timeLastFired;
         private bool canFire = true;
 
+        private bool fireDelay;
+        private double fireDelayTime;
+
+        private bool isFlipped;
+
+        public bool IsFlipped { get { return isFlipped; } set { isFlipped = value; } }
+
         private int damage;
-        private float projectileSpeed;
+
+        private Vector2 playerOrigin;
 
         public override void Initialize(GameObject owner)
         {
@@ -35,14 +46,19 @@ namespace Take3.ECS.Scripts
 
             transform = (Transform)GetComponent<Transform>();
             velocity = (Velocity)GetComponent<Velocity>();
-            sprite = ((Renderer)GetComponent<Renderer>()).Sprite;
+            sprite = ((SpriteRenderer)GetComponent<SpriteRenderer>()).Sprite;
 
-            PlayerProjectile = GameManager.GetPrefab("PurpleDiamondProjectile");
+            PlayerProjectile = GameManager.GetPrefab("RedProjectile");
 
 
-            projectileSprite = ((Renderer)PlayerProjectile.GetComponent<Renderer>()).Sprite;
+            projectileSprite = ((SpriteRenderer)PlayerProjectile.GetComponent<SpriteRenderer>()).Sprite;
 
-            damage = 10;            
+            damage = 10;
+            health = 100;
+
+            playerOrigin = new Vector2(360, 580) - sprite.GetCenter();
+
+            transform.Position = playerOrigin;
         }
 
         private void PushBackVertical()
@@ -77,15 +93,27 @@ namespace Take3.ECS.Scripts
             }
             if (Input.KeyDown("fire"))
             {
-                if(canFire)
+                AttemptToFire(gameTime);
+            }
+
+            
+            if(isFlipped)
+            {
+                velocity.Direction *= -1;
+            }
+
+            if(fireDelay)
+            {
+                fireDelayTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                if(fireDelayTime < 0)
                 {
-                    FireProjectile();
-                    timeLastFired = gameTime.TotalGameTime.TotalMilliseconds;
-                    canFire = false;
+                    fireDelay = false;
+                    canFire = true;
+                    fireDelayTime = 0;
                 }
             }
 
-            if(gameTime.TotalGameTime.TotalMilliseconds >= timeLastFired + cooldown)
+            else if(gameTime.TotalGameTime.TotalMilliseconds >= timeLastFired + cooldown)
             {
                 canFire = true;
             }
@@ -101,6 +129,36 @@ namespace Take3.ECS.Scripts
             {
                 PushBackVertical();
             }
+            else if(collider.Tag == "EnemyProjectile")
+            {
+                var projectile = (Projectile)collider.GetComponent<Projectile>();
+                health -= projectile.Damage;
+                PlayerHit();
+            }
+        }
+
+
+        private void PlayerHit()
+        {
+            foreach(var obj in GameManager.GetObjectsByTag("EnemyProjectile"))
+            {
+                obj.Die();
+            }
+
+            foreach(var obj in GameManager.GetObjectsByTag("PlayerProjectile"))
+            {
+                obj.Die();
+            }
+
+            foreach(var obj in GameManager.GetObjectsByTag("Enemy"))
+            {
+                obj.SetDisableTimer(1500);
+            }
+
+            transform.Position = VectorMath.RotatePoint(playerOrigin, new Vector2(360, 360), transform.Rotation) - sprite.GetDimensions();
+            fireDelay = true;
+            canFire = false;
+            fireDelayTime = 1500;
         }
 
         public void EquipPowerUp(PowerUp powerUp)
@@ -109,17 +167,27 @@ namespace Take3.ECS.Scripts
             PlayerProjectile = powerUp.Projectile;
         }
 
+        public void AttemptToFire(GameTime gameTime)
+        {
+            if (canFire)
+            {
+                FireProjectile();
+                timeLastFired = gameTime.TotalGameTime.TotalMilliseconds;
+                canFire = false;
+            }
+        }
+
         private void FireProjectile()
         {
-            var projectileInstance = GameManager.Instantiate(PlayerProjectile, 
-                                                 new Vector2(sprite.GetCenter.X + transform.Position.X - projectileSprite.GetCenter.X,
-                                                             transform.Position.Y));
+            var projectileInstance = GameManager.Instantiate(PlayerProjectile,
+                                                             sprite.GetCenter() + transform.Position - projectileSprite.GetCenter());
 
             projectileInstance.Tag = "Player" + PlayerProjectile.Tag;
             var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
-            instanceVelocity.Direction = new Vector2(0, -1);
+            instanceVelocity.Direction = VectorMath.Angle2Vector(transform.Rotation);
             var instanceProjectile = (Projectile)projectileInstance.GetComponent<Projectile>();
             instanceProjectile.Damage = damage;
+            
         }
     }
 }

@@ -11,18 +11,24 @@ namespace Take3.ECS
     {
         private GameObject owner;
 
+        public bool IsActive { get { return owner.IsActive; } set { owner.IsActive = value; } }
+
         public Component() { }
 
-        public Component(Component original) { }
-        
         public virtual void Initialize(GameObject owner)
         {
             this.owner = owner;
+            IsActive = true;
         }
 
         protected Component GetComponent<T>() where T : Component
         {
             return owner.GetComponent<T>();
+        }
+
+        protected Component AddComponent<T>() where T : Component, new()
+        {
+            return owner.AddComponent<T>();
         }
 
         protected void Die()

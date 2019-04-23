@@ -69,6 +69,8 @@ namespace Take3.LevelManagement
                     SetScale(prefab, args.Value); break;
                 case "Sprite":
                     AddSpriteArgs(prefab, args.Value); break;
+                case "Text":
+                    AddTextArgs(prefab, args.Value); break;
                 case "Velocity":
                     AddVelocityArgs(prefab, args.Value); break;
                 case "Animations":
@@ -90,6 +92,15 @@ namespace Take3.LevelManagement
             newVelocity.Speed = args.Speed;
             newVelocity.Acceleration = args.Acceleration;
         }
+
+        private static void AddTextArgs(Prefabrication prefab, dynamic args)
+        {
+            var newTextRenderer = (TextRenderer)prefab.AddComponent<TextRenderer>();
+            newTextRenderer.Font = TextureManager.LoadFont((string)args.Font);
+            newTextRenderer.Text = args.Text;
+            newTextRenderer.TextColor = args.TextColor;
+        }
+       
 
         private static void AddWave(Prefabrication prefab, dynamic args)
         {
@@ -116,7 +127,7 @@ namespace Take3.LevelManagement
 
         private static void AddSpriteArgs(Prefabrication prefab, dynamic args)
         {
-            var newRenderer = (Renderer)prefab.AddComponent<Renderer>();
+            var newRenderer = (SpriteRenderer)prefab.AddComponent<SpriteRenderer>();
             newRenderer.Sprite = new Sprite(TextureManager.LoadTexture((string)args.Path), 
                                             new Rectangle(0, 0, (int)args.Width, (int)args.Height), 
                                             (float)args.Scale, (bool)args.Rotatable, (float)args.Depth);
@@ -148,8 +159,8 @@ namespace Take3.LevelManagement
         {
             if((string)args.Shape == "Circle")
             {
-                var collider = (Collider)prefab.AddComponent<CircleCollider>();
-                collider.Buffer = (float)args.Buffer;
+                var circleCollider = (CircleCollider)prefab.AddComponent<CircleCollider>();
+                circleCollider.Buffer = (float)args.Buffer;
             }
             else
             {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GreenSquare.png</SourceFile>
-  <SourceTime>2019-04-12T10:35:16.5734012-07:00</SourceTime>
+  <SourceTime>2019-04-20T23:12:21.4215689-07:00</SourceTime>
   <DestFile>C:/Users/Jack/Documents/487/Take3/Take3/Content/bin/Windows/Content/Textures/GreenSquare.xnb</DestFile>
-  <DestTime>2019-04-19T01:26:18.4297492-07:00</DestTime>
+  <DestTime>2019-04-20T23:12:23.9772656-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2019-01-19T13:27:06-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

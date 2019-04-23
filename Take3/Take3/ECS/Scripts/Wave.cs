@@ -11,7 +11,6 @@ namespace Take3.ECS.Scripts
 {
     public class Wave : Script
     {
-        public bool IsActive { get; set; }
         protected Queue<Spawn> spawns = new Queue<Spawn>();
 
         public override void Initialize(GameObject owner)
@@ -34,12 +33,6 @@ namespace Take3.ECS.Scripts
                     var currentSpawn = spawns.Dequeue();
 
                     var obj = GameManager.Instantiate(GameManager.GetPrefab(currentSpawn.Name), currentSpawn.Origin);
-
-                    if(obj.Tag == "PowerUp")
-                    {
-                        var velocity = (Velocity)obj.GetComponent<Velocity>();
-                        velocity.Direction = new Vector2(0, 1);
-                    }
 
                     if(spawns.Count == 0)
                     {
