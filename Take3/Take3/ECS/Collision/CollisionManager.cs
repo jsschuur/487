@@ -34,17 +34,20 @@ namespace Take3.ECS.Collision
                     {
                         if(layer1obj.IsActive && layer2obj.IsActive)
                         {
-                            var collider1 = (Collider)layer1obj.GetComponent<Collider>();
-                            var collider2 = (Collider)layer2obj.GetComponent<Collider>();
-
-                            if (collider1 != null && collider2 != null)
+                            if(layer1obj.HasComponent<Collider>() && layer2obj.HasComponent<Collider>())
                             {
-                                if (collider1.IsActive && collider2.IsActive)
+                                var collider1 = (Collider)layer1obj.GetComponent<Collider>();
+                                var collider2 = (Collider)layer2obj.GetComponent<Collider>();
+
+                                if (collider1 != null && collider2 != null)
                                 {
-                                    if (CollisionMath.CheckCollision(collider1, collider2))
+                                    if (collider1.IsActive && collider2.IsActive)
                                     {
-                                        collider1.Collide(layer2obj);
-                                        collider2.Collide(layer1obj);
+                                        if (CollisionMath.CheckCollision(collider1, collider2))
+                                        {
+                                            collider1.Collide(layer2obj);
+                                            collider2.Collide(layer1obj);
+                                        }
                                     }
                                 }
                             }

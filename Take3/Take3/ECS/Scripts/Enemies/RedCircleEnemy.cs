@@ -33,7 +33,7 @@ namespace Take3.ECS.Scripts
             renderer = (SpriteRenderer)GetComponent<Renderer>();
             projectileRenderer = (SpriteRenderer)projectile.GetComponent<SpriteRenderer>();
 
-            health = 20;
+            health = 4;
         }
 
         public override void Update(GameTime gameTime)

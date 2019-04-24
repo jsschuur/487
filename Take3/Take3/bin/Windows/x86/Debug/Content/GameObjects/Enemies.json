@@ -191,7 +191,34 @@
 		"Scripts": ["Midboss"]
 	},
 
+	"FinalBoss": {
+
+		"Tag": "Enemy",
+
+		"Sprite": {
+			"Path": "FinalBoss",
+			"Width": 256,
+			"Height": 256,
+			"Scale": 1,
+			"Depth": 0.2,
+			"Rotatable": true 
+		},
+
+		"Velocity": {
+			"Speed": 0,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 16
+		},
+
+		"Scripts": ["FinalBoss"]
+	},
+
+
 	"FlipGameScreen": {
 		"Scripts": ["FlipGameScreen"]
-	}
+	},
 }

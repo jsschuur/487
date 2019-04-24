@@ -41,7 +41,9 @@ namespace Take3.ECS
                 direction.Normalize();
             }
             transform.Position += direction * Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+  
             Speed += Acceleration;
+             
         }
     }
 }

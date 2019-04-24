@@ -13,7 +13,7 @@ namespace Take3.ECS.Scripts
     {
         enum MidbossState
         {
-            Phase1, Phase2
+            TransitionPhase1, Phase1, TransitionPhase2, Phase2
         }
 
 
@@ -22,22 +22,35 @@ namespace Take3.ECS.Scripts
 
         private SpriteRenderer renderer;
 
-        private Prefabrication projectile;
+        private Prefabrication phaseOneProjectile;
+        private Prefabrication phaseTwoProjectile;
+
         private Transform player;
+        private Vector2 playerCenter;
 
         private Vector2[] phaseOneCoordinates;
         private Vector2[] bossOutline;
         private Vector2[] starPoints;
 
+        private Vector2 centerPosition;
+
         private float phase2AttackCooldown = 70;
 
-        //15 degrees per second
-        private double phase2RotationSpeed = 0.261799 * 3;
+        private double phase2RotationSpeed = VectorMath.Degrees2Radians(40);
         private double phase2LastAttack;
 
         private int currentPhase1Index;
 
+        private float bulletFanCooldown = 2500;
+        private double bulletFanLastAttackTime;
+
+        private float bulletFanOffset = .3f;
+        private Prefabrication bulletFanProjectile;
+        private SpriteRenderer bulletFanProjectileRenderer;
+
         private MidbossState midbossState;
+
+        private int totalHealth;
 
         public override void Initialize(GameObject owner)
         {
@@ -50,10 +63,19 @@ namespace Take3.ECS.Scripts
 
             velocity = (Velocity)GetComponent<Velocity>();
 
-            player = (Transform)GameManager.GetObjectByTag("Player").GetComponent<Transform>();
-            projectile = GameManager.GetPrefab("GreenProjectile");
+            var playerObj = GameManager.GetObjectByTag("Player");
 
-            projectile.Tag = "Enemy" + projectile.Tag;
+            player = (Transform)playerObj.GetComponent<Transform>();
+            playerCenter = ((SpriteRenderer)playerObj.GetComponent<SpriteRenderer>()).Sprite.GetCenter();
+            phaseOneProjectile = GameManager.GetPrefab("GreenProjectile");
+            phaseTwoProjectile = GameManager.GetPrefab("PinkSquareProjectile");
+
+            phaseOneProjectile.Tag = "Enemy" + phaseOneProjectile.Tag;
+
+            centerPosition = new Vector2(360, 360) - renderer.Sprite.GetCenter();
+
+            bulletFanProjectile = GameManager.GetPrefab("WhiteDiamondProjectile");
+            bulletFanProjectileRenderer = (SpriteRenderer)bulletFanProjectile.GetComponent<SpriteRenderer>();
 
             phaseOneCoordinates = new Vector2[]
             {
@@ -87,8 +109,8 @@ namespace Take3.ECS.Scripts
                 new Vector2(255, 101) * renderer.Sprite.Scale,
             };
 
-            health = 10;
-            midbossState = MidbossState.Phase2;
+            health = totalHealth = 2;
+            midbossState = MidbossState.TransitionPhase1;
         }
 
         public override void Update(GameTime gameTime)
@@ -96,12 +118,31 @@ namespace Take3.ECS.Scripts
             base.Update(gameTime);
             switch(midbossState)
             {
+                case MidbossState.TransitionPhase1:
+                    ManageTransitionPhase1(gameTime); break;
                 case MidbossState.Phase1:
                     ManagePhase1(gameTime); break;
+                case MidbossState.TransitionPhase2:
+                    ManageTransitionPhase2(gameTime); break;
                 case MidbossState.Phase2:
                     ManagePhase2(gameTime); break;
             }
         }
+
+
+
+        private void ManageTransitionPhase1(GameTime gameTime)
+        {
+            velocity.Direction = phaseOneCoordinates[0] - transform.Position;
+            var distance = Vector2.Distance(transform.Position, phaseOneCoordinates[0]);
+
+            if (distance <= velocity.Speed * gameTime.ElapsedGameTime.TotalSeconds)
+            {
+                currentPhase1Index = 1;
+                midbossState = MidbossState.Phase1;
+            }
+        }
+
 
         private void ManagePhase1(GameTime gameTime)
         {
@@ -117,24 +158,57 @@ namespace Take3.ECS.Scripts
             {
                 velocity.Direction = phaseOneCoordinates[currentPhase1Index] - transform.Position;
             }
+
+            if((float)health / (float)totalHealth <= .5)
+            {
+                midbossState = MidbossState.TransitionPhase2;
+            }
+
+            if(gameTime.TotalGameTime.TotalMilliseconds >= bulletFanCooldown + bulletFanLastAttackTime)
+            {
+                BulletFan(new Vector2(0, 0));
+                BulletFan(new Vector2(730, 0));
+                bulletFanLastAttackTime = gameTime.TotalGameTime.TotalMilliseconds;
+            }
+        }
+
+        private void ManageTransitionPhase2(GameTime gameTime)
+        {
+            velocity.Direction = centerPosition - transform.Position;
+
+            var distance = Vector2.Distance(transform.Position, centerPosition);
+
+            if (distance <= velocity.Speed * gameTime.ElapsedGameTime.TotalSeconds)
+            {
+                velocity.IsActive = false;
+                transform.Position = centerPosition; 
+                midbossState = MidbossState.Phase2;
+            }
         }
 
         private void ManagePhase2(GameTime gameTime)
         {
             if (gameTime.TotalGameTime.TotalMilliseconds >= phase2LastAttack + phase2AttackCooldown)
             {
-                var projectileRenderer = (SpriteRenderer)projectile.GetComponent<SpriteRenderer>();
+                var projectileRenderer = (SpriteRenderer)phaseTwoProjectile.GetComponent<SpriteRenderer>();
                 foreach (var point in starPoints)
                 {
                     var rotatedPoint = VectorMath.RotatePoint(point, renderer.Sprite.GetCenter(), transform.Rotation);
                     var direction = rotatedPoint - renderer.Sprite.GetCenter();
-                    if (direction.X != 0 || direction.Y != 0) direction.Normalize();
-                    var instance = GameManager.Instantiate(projectile, rotatedPoint + transform.Position - projectileRenderer.Sprite.GetCenter());
-
+ 
+                    var instance = GameManager.Instantiate(phaseTwoProjectile, rotatedPoint + transform.Position - projectileRenderer.Sprite.GetCenter());
+                    instance.Tag = "Enemy" + instance.Tag;
                     var instanceVelocity = (Velocity)instance.GetComponent<Velocity>();
                     instanceVelocity.Direction = direction;
                 }
                 phase2LastAttack = gameTime.TotalGameTime.TotalMilliseconds;
+            }
+
+            if (gameTime.TotalGameTime.TotalMilliseconds >= bulletFanCooldown + bulletFanLastAttackTime)
+            {
+                BulletFan(new Vector2(0, 0));
+                BulletFan(new Vector2(730, 0));
+                bulletFanLastAttackTime = gameTime.TotalGameTime.TotalMilliseconds;
             }
 
             transform.Rotation += (float)phase2RotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -142,11 +216,9 @@ namespace Take3.ECS.Scripts
 
         private void StarAttack()
         {
-            var projectileSprite = ((SpriteRenderer)projectile.GetComponent<SpriteRenderer>()).Sprite;
-            var projectileDirection = player.Position - transform.Position;
+            var projectileSprite = ((SpriteRenderer)phaseOneProjectile.GetComponent<SpriteRenderer>()).Sprite;
+            var projectileDirection = player.Position + playerCenter - transform.Position;
 
-            if(projectileDirection.X != 0 || projectileDirection.Y != 0) projectileDirection.Normalize();
-            
             for(int i = 0; i < bossOutline.Length; i++)
             {
                 var j = (i == bossOutline.Length - 1) ? 0 : i + 1;
@@ -159,11 +231,24 @@ namespace Take3.ECS.Scripts
 
                 while(Vector2.Distance(currentPoint, bossOutline[j]) >= offset)
                 {
-                    var projectileInstance = GameManager.Instantiate(projectile, currentPoint + transform.Position - projectileSprite.GetCenter());
+                    var projectileInstance = GameManager.Instantiate(phaseOneProjectile, currentPoint + transform.Position - projectileSprite.GetCenter());
                     var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
                     instanceVelocity.Direction = projectileDirection;
                     currentPoint += offset * direction;
                 }
+            }
+        }
+
+        private void BulletFan(Vector2 origin)
+        {
+            for (var currentAngle = 0f; currentAngle < Math.PI * 2; currentAngle += bulletFanOffset)
+            {
+                var projectileInstance = GameManager.Instantiate(bulletFanProjectile, origin);
+                projectileInstance.Tag = "Enemy" + projectileInstance.Tag;
+                var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
+
+                instanceVelocity.Direction = VectorMath.Angle2Vector(currentAngle);
+                ((Transform)projectileInstance.GetComponent<Transform>()).Rotation = currentAngle;
             }
         }
     }

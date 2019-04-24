@@ -52,6 +52,7 @@ namespace Take3.Utility
 
             newVelocity.Speed = velocity.Speed;
             newVelocity.Direction = new Vector2(velocity.Direction.X, velocity.Direction.Y);
+            newVelocity.Acceleration = velocity.Acceleration;
         }
 
         private static void CloneTextRenderer(GameObject copy, TextRenderer textRenderer)

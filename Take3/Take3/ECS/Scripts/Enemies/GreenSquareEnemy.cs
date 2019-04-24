@@ -35,7 +35,7 @@ namespace Take3.ECS.Scripts
 
             range = new Vector2(135, 225);
 
-            health = 20;
+            health = 4;
 
         }
 

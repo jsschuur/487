@@ -28,11 +28,11 @@
 			"Depth": 0.1,
 			"Rotatable": false, 
 		},
-
 		"Position": {
 			"X": 384,
-			"Y": 406
+			"Y": 598
 		},
+
 
 		"Scripts": ["ExitButton"]
 	},
@@ -68,7 +68,7 @@
 
 		"Position": {
 			"X": 384,
-			"Y": 598
+			"Y": 406
 		},
 
 		"Scripts": ["MenuGalleryButton"]

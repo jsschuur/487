@@ -47,8 +47,8 @@ namespace Take3.ECS.Scripts
 
             foreach (var prefab in galleryList)
             {
-                var xPos = index % 4 + 1;
-                var yPos = index / 4 + 1;
+                var xPos = index % 5 + 1;
+                var yPos = index / 5 + 1;
 
                 var xOffset = xPos * (padding + width);
                 var yOffset = yPos * (padding + height);

@@ -70,15 +70,4 @@
 
 		"Scripts": ["PlayerHealthBar"]
 	},
-
-	"Score": {
-		"Tag": "Score", 
-
-		"Position": {
-			"X": 890,
-			"Y": 150
-		},
-
-		"Scripts": ["Score"] 
-	}
 }

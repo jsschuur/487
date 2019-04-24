@@ -102,6 +102,40 @@
 		"Scripts": ["Projectile"]
 	},
 
+	"LargePinkSquareProjectile": {
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/PinkSquareProjectile",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 0.5,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 0
+		},
+
+		"Animations": [
+			{
+				"Name": "Default",
+				"NumFrames": 4,
+				"Delay": 100,
+				"YOffset": 0
+			},
+		],
+
+		"Scripts": ["Projectile"]
+	},
+
 	"PurpleDiamondProjectile": {
 
 		"Tag": "Projectile", 
@@ -115,9 +149,10 @@
 			"Rotatable": true
 		},
 
+
 		"Velocity": {
-			"Speed": 300,
-			"Acceleration": 50
+			"Speed": 200,
+			"Acceleration": 20
 		},
 
 		"Collision": {
@@ -169,13 +204,34 @@
 		},
 
 		"Velocity": {
-			"Speed": 100,
+			"Speed": 350,
 			"Acceleration": 0
 		},
 
 		"Collision": {
 			"Shape": "Circle", 
 			"Buffer": 2
+		},
+		
+		"Scripts": ["Projectile"]
+	},
+	"LargeGreenProjectile": {
+
+		"Tag": "Projectile", 
+
+		"Sprite": {
+			"Path": "Projectiles/GreenProjectile",
+			"Width": 16,
+			"Height": 16,
+			"Scale": 2,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 0
 		},
 		
 		"Scripts": ["Projectile"]

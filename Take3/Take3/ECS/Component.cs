@@ -11,7 +11,8 @@ namespace Take3.ECS
     {
         private GameObject owner;
 
-        public bool IsActive { get { return owner.IsActive; } set { owner.IsActive = value; } }
+        private bool isActive;
+        public bool IsActive { get { return isActive; } set { isActive = value; } }
 
         public Component() { }
 

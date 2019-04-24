@@ -9,7 +9,7 @@ using static Take3.Utility.UtilityMath;
 
 namespace Take3.ECS.Scripts
 {
-    class YellowHexagonEnemy : Enemy
+    class BlueDiamondEnemy : Enemy
     {
 
         private Prefabrication projectile;
@@ -18,17 +18,16 @@ namespace Take3.ECS.Scripts
         private SpriteRenderer renderer;
         private SpriteRenderer projectileRenderer;
 
-        private float cooldown;
+        private float cooldown = 1000;
         private double lastAttackTime;
 
-        private int numProjectiles = 3;
-        private int projectileWave = 0;
+        private int numProjectiles = 5;
         private Vector2 range;
 
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            projectile = GameManager.GetPrefab("RedProjectile");
+            projectile = GameManager.GetPrefab("WhiteProjectile");
 
             transform = (Transform)GetComponent<Transform>();
             renderer = (SpriteRenderer)GetComponent<SpriteRenderer>();
@@ -36,7 +35,7 @@ namespace Take3.ECS.Scripts
 
             range = new Vector2(135, 225);
 
-            health = 20;
+            health = 3;
         }
 
         public override void Update(GameTime gameTime)
@@ -47,27 +46,18 @@ namespace Take3.ECS.Scripts
                 var offset = VectorMath.Degrees2Radians((range.Y - range.X) / (numProjectiles + 1));
                 var currentAngle = VectorMath.Degrees2Radians(range.X);
 
-
                 for (int i = 0; i < numProjectiles; i++)
                 {
-                    cooldown = 300;
                     currentAngle += offset;
                     var projectileInstance = GameManager.Instantiate(projectile, transform.Position + renderer.Sprite.GetCenter() - projectileRenderer.Sprite.GetCenter());
                     projectileInstance.Tag = "Enemy" + projectileInstance.Tag;
 
                     var delayedHoming = (DelayedHomingProjectile)projectileInstance.GetComponent<DelayedHomingProjectile>();
-                    delayedHoming.DelayTime = 400;
-                    delayedHoming.HomingTime = 300;
+                    delayedHoming.DelayTime = 500;
+                    delayedHoming.HomingTime = 600;
 
                     var velocity = (Velocity)projectileInstance.GetComponent<Velocity>();
                     velocity.Direction = VectorMath.Angle2Vector(currentAngle);
-                }
-                projectileWave++;
-
-                if (projectileWave > 2)
-                {
-                    projectileWave = 0;
-                    cooldown = 1250;
                 }
 
                 lastAttackTime = gameTime.TotalGameTime.TotalMilliseconds;
@@ -75,3 +65,5 @@ namespace Take3.ECS.Scripts
         }
     }
 }
+
+

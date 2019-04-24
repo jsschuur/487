@@ -100,13 +100,14 @@ namespace Take3.ECS.Scripts
                 AttemptToFire(gameTime);
             }
 
-            
-            if(isFlipped)
+
+
+            if (isFlipped)
             {
                 velocity.Direction *= -1;
             }
 
-            if(fireDelay)
+            if (fireDelay)
             {
                 fireDelayTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
                 if(fireDelayTime < 0)
@@ -155,6 +156,10 @@ namespace Take3.ECS.Scripts
             }
 
             foreach(var obj in GameManager.GetObjectsByTag("Enemy"))
+            {
+                obj.SetDisableTimer(1500);
+            }
+            foreach (var obj in GameManager.GetObjectsByTag("TurretEnemy"))
             {
                 obj.SetDisableTimer(1500);
             }

@@ -93,8 +93,6 @@ namespace Take3
             GameManager.Instantiate(GameManager.GetPrefab("RightPlayerBoundary"), State.Game);
             GameManager.Instantiate(GameManager.GetPrefab("BottomPlayerBoundary"), State.Game);
 
-            GameManager.Instantiate(GameManager.GetPrefab("Score"), State.Game);
-
             GameManager.Instantiate(GameManager.GetPrefab("Player"), State.Game);
 
             foreach (var obj in GameManager.GetPrefabsByTag("GameWindow"))

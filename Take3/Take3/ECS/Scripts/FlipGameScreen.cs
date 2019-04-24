@@ -44,6 +44,11 @@ namespace Take3.ECS.Scripts
                 obj.IsActive = false;
                 gameWindowObjects.Add(obj);
             }
+            foreach (var obj in GameManager.GetObjectsByTag("TurretEnemy"))
+            {
+                obj.IsActive = false;
+                gameWindowObjects.Add(obj);
+            }
             foreach (var obj in GameManager.GetObjectsByTag("EnemyProjectile"))
             {
                 obj.IsActive = false;
@@ -63,16 +68,20 @@ namespace Take3.ECS.Scripts
             foreach(var obj in gameWindowObjects)
             {
                 var transform = (Transform)obj.GetComponent<Transform>();
-                var renderer = (SpriteRenderer)obj.GetComponent<SpriteRenderer>();
 
                 var position = transform.Position;
 
-                position += renderer.Sprite.GetCenter();
-
-                position = VectorMath.RotatePoint(position, gameWindowCenter, deltaPerSecond * (float)gameTime.ElapsedGameTime.TotalSeconds);
-
-                position -= renderer.Sprite.GetCenter();
-
+                if(obj.HasComponent<Renderer>())
+                {
+                    var renderer = (SpriteRenderer)obj.GetComponent<SpriteRenderer>();
+                    position += renderer.Sprite.GetCenter();
+                    position = VectorMath.RotatePoint(position, gameWindowCenter, deltaPerSecond * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                    position -= renderer.Sprite.GetCenter();
+                }
+                else
+                {
+                    position = VectorMath.RotatePoint(position, gameWindowCenter, deltaPerSecond * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                }
 
                 transform.Position = position;
                 transform.Rotation += deltaPerSecond * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -87,15 +96,20 @@ namespace Take3.ECS.Scripts
                 foreach (var obj in gameWindowObjects)
                 {
                     var transform = (Transform)obj.GetComponent<Transform>();
-                    var renderer = (SpriteRenderer)obj.GetComponent<SpriteRenderer>();
-
                     var position = transform.Position;
+                    if (obj.HasComponent<Renderer>())
+                    {
+                        var renderer = (SpriteRenderer)obj.GetComponent<SpriteRenderer>();
+                        position += renderer.Sprite.GetCenter();
+                        position = VectorMath.RotatePoint(position, gameWindowCenter, deltaPerSecond * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                        position -= renderer.Sprite.GetCenter();
+                    }
+                    else
+                    {
+                        position = VectorMath.RotatePoint(position, gameWindowCenter, deltaPerSecond * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                    }
 
-                    position += renderer.Sprite.GetCenter();
-
-                    position = VectorMath.RotatePoint(position, gameWindowCenter, difference);
-
-                    position -= renderer.Sprite.GetCenter();
+                    transform.Position = position;
 
                     if(obj.HasComponent<Velocity>())
                     {

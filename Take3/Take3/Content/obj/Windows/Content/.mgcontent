@@ -24,6 +24,7 @@
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Buttons/RightCarrotButton.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/EmptyHealthBar.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/ExitButton.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/FinalBoss.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GalleryBackground.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GameOverlay.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/GameWindowBackground.png</File>
@@ -58,6 +59,7 @@
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/YellowHexagon.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

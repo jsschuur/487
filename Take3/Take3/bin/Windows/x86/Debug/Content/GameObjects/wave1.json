@@ -5,5 +5,8 @@
 
 	"Wave2": {
 		"Scripts": ["Wave2"]
+	},
+	"Wave4": {
+		"Scripts": ["Wave4"]
 	}
 }

@@ -176,3 +176,4 @@ C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\B
 C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\MenuGalleryButton.xnb
 C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\OKButton.xnb
 C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\Buttons\MainMenuButton.xnb
+C:\Users\Jack\Documents\487\Take3\Take3\bin\Windows\x86\Debug\Content\Textures\FinalBoss.xnb
