@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Take3.GameManagement;
 using Take3.LevelManagement;
 
 namespace Take3.ECS.Scripts 
@@ -15,6 +16,7 @@ namespace Take3.ECS.Scripts
             base.Initialize(owner);
 
             endTimeDelay = 2000;
+            nextWave = GameManager.GetPrefab("GameOver");
 
             var spawnArray = new[]
             {

@@ -44,11 +44,7 @@ namespace Take3.ECS.Scripts
                 obj.IsActive = false;
                 gameWindowObjects.Add(obj);
             }
-            foreach (var obj in GameManager.GetObjectsByTag("TurretEnemy"))
-            {
-                obj.IsActive = false;
-                gameWindowObjects.Add(obj);
-            }
+
             foreach (var obj in GameManager.GetObjectsByTag("EnemyProjectile"))
             {
                 obj.IsActive = false;

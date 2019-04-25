@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Take3.GameManagement;
 
-namespace Take3.ECS.Scripts
+namespace Take3.ECS.Scripts 
 {
-    class GreySquarePowerUp : PowerUp
+    class PowerUp3 : PowerUp
     {
-
         public override void Initialize(GameObject owner)
         {
             base.Initialize(owner);
-            projectile = GameManager.GetPrefab("GreySquareProjectile");
+            cooldown = 70;
+            projectile = GameManager.GetPrefab("WhiteProjectile");
         }
     }
 }

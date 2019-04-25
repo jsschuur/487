@@ -36,7 +36,7 @@ namespace Take3.ECS.Scripts
 
             range = new Vector2(135, 225);
 
-            health = 5;
+            health = 3;
         }
 
         public override void Update(GameTime gameTime)

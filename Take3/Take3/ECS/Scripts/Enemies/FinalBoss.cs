@@ -71,7 +71,7 @@ namespace Take3.ECS.Scripts
             bulletFanProjectile = GameManager.GetPrefab("GreySquareProjectile");
 
 
-            health = totalHealth = 10;
+            health = totalHealth = 1;
 
             finalBossState = FinalBossState.TransitionPhase1;
         }
@@ -168,12 +168,6 @@ namespace Take3.ECS.Scripts
             }
             finalBossState = FinalBossState.Phase2;
         }
-
-        public void ManagePhase2(GameTime gameTime)
-        {
-
-        }
-
         
 
         public void TriangleAttack()

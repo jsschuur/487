@@ -35,13 +35,14 @@ namespace Take3.ECS.Scripts
                 Tuple.Create(640, 480),
                 Tuple.Create(1280, 720),
                 Tuple.Create(1920, 1080),
-                Tuple.Create(2650, 1440)
+                Tuple.Create(2650, 1440),
+                Tuple.Create(3840, 2160),
             };
 
             textRenderer.Text = resolutions[currentIndex].Item1.ToString() + "x" + resolutions[currentIndex].Item2.ToString();
 
             numResolutions = resolutions.Length;
-
+ 
             var switchLeftButton = (SwitchButton)GameManager.GetObjectByTag("LeftResolutionButton").GetComponent<SwitchButton>();
             var switchRightButton = (SwitchButton)GameManager.GetObjectByTag("RightResolutionButton").GetComponent<SwitchButton>();
 

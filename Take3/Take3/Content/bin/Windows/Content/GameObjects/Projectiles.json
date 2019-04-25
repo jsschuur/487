@@ -135,7 +135,39 @@
 
 		"Scripts": ["Projectile"]
 	},
+	"LargeGreySquareProjectile": {
+		"Tag": "Projectile", 
 
+		"Sprite": {
+			"Path": "Projectiles/GreySquareProjectile",
+			"Width": 64,
+			"Height": 64,
+			"Scale": 0.5,
+			"Depth": 0.3,
+			"Rotatable": true
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle", 
+			"Buffer": 0
+		},
+
+		"Animations": [
+			{
+				"Name": "Default",
+				"NumFrames": 4,
+				"Delay": 100,
+				"YOffset": 0
+			},
+		],
+
+		"Scripts": ["Projectile"]
+	},
 	"PurpleDiamondProjectile": {
 
 		"Tag": "Projectile", 
@@ -179,7 +211,7 @@
 
 		"Velocity": {
 			"Speed": 100,
-			"Acceleration": 50
+			"Acceleration": 30
 		},
 
 		"Collision": {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Take3.ECS.Scripts
 {
-    class PowerUp : Projectile
+    abstract class PowerUp : Projectile
     {
         protected Prefabrication projectile;
         protected float cooldown;
@@ -20,16 +20,6 @@ namespace Take3.ECS.Scripts
             base.Initialize(owner);
             var velocity = (Velocity)GetComponent<Velocity>();
             velocity.Direction = new Vector2(0, 1);
-        }
-
-        public override void OnCollision(GameObject collider)
-        {
-            if(collider.Tag == "Player")
-            {
-                var player = (Player)collider.GetComponent<Player>();
-                player.EquipPowerUp(this);
-                Die();
-            }
         }
     }
 }

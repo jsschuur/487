@@ -70,7 +70,7 @@ namespace Take3.GameManagement
             collisionManager.AddLayer("PlayerProjectile", "Enemy");
             collisionManager.AddLayer("VerticalBoundary", "Player");
             collisionManager.AddLayer("HorizantalBoundary", "Player");
-            collisionManager.AddLayer("PowerUp", "Player");
+            
             collisionManager.AddLayer("PlayerProjectile", "ProjectileBoundary");
             collisionManager.AddLayer("Player", "EnemyProjectile");
 

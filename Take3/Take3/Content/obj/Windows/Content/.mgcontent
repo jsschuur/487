@@ -40,6 +40,7 @@
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/PlayButton.png</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Player.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/PlayerHealthBar.png</File>
+    <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/PowerUp.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/BlueProjectile.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/GreenProjectile.PNG</File>
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/Projectiles/GreenSquareProjectile.png</File>
@@ -59,6 +60,7 @@
     <File>C:/Users/Jack/Documents/487/Take3/Take3/Content/Textures/YellowHexagon.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

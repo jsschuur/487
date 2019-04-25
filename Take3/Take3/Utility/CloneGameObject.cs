@@ -29,8 +29,6 @@ namespace Take3.Utility
                         CloneCircleCollider(copy, cc); break;
                     case BoxCollider bc:
                         CloneBoxCollider(copy, bc); break;
-                    case LinearProjectile lp:
-                        CloneLinearProjectile(copy, lp); break;
                     case SpriteRenderer sr:
                         CloneSpriteRenderer(copy, sr); break;
                     case TextRenderer tr:
@@ -94,13 +92,6 @@ namespace Take3.Utility
         {
             var newBoxCollider = (BoxCollider)copy.AddComponent<BoxCollider>();
             newBoxCollider.Buffer = original.Buffer;
-        }
-
-        private static void CloneLinearProjectile(GameObject copy, LinearProjectile original)
-        {
-            var newLinearProjectile = (LinearProjectile)copy.AddComponent<LinearProjectile>();
-            newLinearProjectile.Direction = new Vector2(original.Direction.X, original.Direction.Y);
-            newLinearProjectile.Speed = original.Speed;
         }
 
         private static void CloneSpriteRenderer(GameObject copy, SpriteRenderer original)

@@ -17,7 +17,7 @@ namespace Take3.ECS.Scripts
 
             endTimeDelay = 2000;
 
-            nextWave = GameManager.GetPrefab("Wave4");
+            nextWave = GameManager.GetPrefab("Wave3");
 
             var spawnArray = new[]
             {

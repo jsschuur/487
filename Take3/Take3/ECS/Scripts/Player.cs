@@ -36,10 +36,15 @@ namespace Take3.ECS.Scripts
 
         public bool IsFlipped { get { return isFlipped; } set { isFlipped = value; } }
 
-        private int damage;
+        private float Cooldown { set { cooldown = value; } }
 
         private Vector2 playerOrigin;
         private Vector2 flippedPlayerOrigin;
+
+        private bool slowed;
+
+        private float slowSpeed;
+        private float normalSpeed;
 
         public override void Initialize(GameObject owner)
         {
@@ -54,8 +59,7 @@ namespace Take3.ECS.Scripts
 
             projectileSprite = ((SpriteRenderer)PlayerProjectile.GetComponent<SpriteRenderer>()).Sprite;
 
-            damage = 10;
-            health = 100;
+            health = 7;
 
             playerOrigin = new Vector2(360, 580) - sprite.GetCenter();
             flippedPlayerOrigin = VectorMath.RotatePoint(playerOrigin, new Vector2(360, 360), (float)Math.PI) - sprite.GetDimensions();
@@ -63,6 +67,9 @@ namespace Take3.ECS.Scripts
             transform.Position = playerOrigin;
 
             isFlipped = false;
+
+            slowSpeed = 100f;
+            normalSpeed = 300f;
         }
 
         private void PushBackVertical()
@@ -74,7 +81,7 @@ namespace Take3.ECS.Scripts
         {
             transform.X = velocity.LastPosition.X;
         }
-       
+
         public override void Update(GameTime gameTime)
         {
             velocity.Direction = Vector2.Zero;
@@ -100,7 +107,14 @@ namespace Take3.ECS.Scripts
                 AttemptToFire(gameTime);
             }
 
-
+            if (Input.KeyDown("slow"))
+            {
+                slowed = true;
+            }
+            else
+            {
+                slowed = false;
+            }
 
             if (isFlipped)
             {
@@ -110,15 +124,25 @@ namespace Take3.ECS.Scripts
             if (fireDelay)
             {
                 fireDelayTime -= gameTime.ElapsedGameTime.TotalMilliseconds;
-                if(fireDelayTime < 0)
+                if (fireDelayTime < 0)
                 {
                     fireDelay = false;
                     canFire = true;
                     fireDelayTime = 0;
                 }
+
             }
 
-            else if(gameTime.TotalGameTime.TotalMilliseconds >= timeLastFired + cooldown)
+            if(slowed == true)
+            {
+                velocity.Speed = slowSpeed;
+            }
+            if(slowed == false)
+            {
+                velocity.Speed = normalSpeed;
+            }
+
+            if(gameTime.TotalGameTime.TotalMilliseconds >= timeLastFired + cooldown)
             {
                 canFire = true;
             }
@@ -137,15 +161,26 @@ namespace Take3.ECS.Scripts
             else if(collider.Tag == "EnemyProjectile")
             {
                 var projectile = (Projectile)collider.GetComponent<Projectile>();
-                health -= projectile.Damage;
+                health--;
                 PlayerHit();
+            }
+            else if(collider.Tag == "PowerUp")
+            {
+                var powerUp = (PowerUp)collider.GetComponent<PowerUp>();
+                Cooldown = powerUp.Cooldown;
+                PlayerProjectile = powerUp.Projectile;
             }
         }
 
 
         private void PlayerHit()
         {
-            foreach(var obj in GameManager.GetObjectsByTag("EnemyProjectile"))
+            if (health <= 0)
+            {
+                GameManager.Instantiate(GameManager.GetPrefab("GameOver"));
+                return;
+            }
+            foreach (var obj in GameManager.GetObjectsByTag("EnemyProjectile"))
             {
                 obj.Die();
             }
@@ -157,11 +192,11 @@ namespace Take3.ECS.Scripts
 
             foreach(var obj in GameManager.GetObjectsByTag("Enemy"))
             {
-                obj.SetDisableTimer(1500);
+                obj.SetDisableTimer(700);
             }
             foreach (var obj in GameManager.GetObjectsByTag("TurretEnemy"))
             {
-                obj.SetDisableTimer(1500);
+                obj.SetDisableTimer(700);
             }
 
             transform.Position = (isFlipped) ? flippedPlayerOrigin : playerOrigin;
@@ -172,7 +207,6 @@ namespace Take3.ECS.Scripts
 
         public void EquipPowerUp(PowerUp powerUp)
         {
-            damage = powerUp.Damage;
             PlayerProjectile = powerUp.Projectile;
         }
 
@@ -195,8 +229,7 @@ namespace Take3.ECS.Scripts
             var instanceVelocity = (Velocity)projectileInstance.GetComponent<Velocity>();
             instanceVelocity.Direction = VectorMath.Angle2Vector(transform.Rotation);
             var instanceProjectile = (Projectile)projectileInstance.GetComponent<Projectile>();
-            instanceProjectile.Damage = damage;
-            
+      
         }
     }
 }

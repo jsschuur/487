@@ -109,7 +109,7 @@ namespace Take3.ECS.Scripts
                 new Vector2(255, 101) * renderer.Sprite.Scale,
             };
 
-            health = totalHealth = 2;
+            health = totalHealth = 100;
             midbossState = MidbossState.TransitionPhase1;
         }
 

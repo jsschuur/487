@@ -4,6 +4,11 @@
 		"Scripts": ["Pause"]
 	},
 
+	"GameOver" : {
+		"Tag": "Pause",
+		"Scripts": ["GameOver"]
+	},
+
 	"QuitButton": {
 		"Tag": "Pause",
 		"Sprite": {

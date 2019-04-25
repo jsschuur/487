@@ -17,9 +17,77 @@
 		},
 
 		"Collision": {
-			"Shape": "Box",
+			"Shape": "Circle",
 			"Buffer": 16
 		},
 		"Scripts": ["Player"]
 	},
+
+	"PowerUp1" : {
+		"Tag": "PowerUp", 
+		"Sprite": {
+			"Path": "PowerUp",
+			"Width": 32,
+			"Height": 32,
+			"Depth": 0.2,
+			"Scale": 1,
+			"Rotatable": true 
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 16
+		},
+
+		"Scripts": ["PowerUp1"]
+	},
+	"PowerUp2" : {
+		"Tag": "PowerUp", 
+		"Sprite": {
+			"Path": "PowerUp",
+			"Width": 32,
+			"Height": 32,
+			"Depth": 0.2,
+			"Scale": 1,
+			"Rotatable": true 
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 16
+		},
+		"Scripts": ["PowerUp2"]
+	},
+	"PowerUp3" : {
+		"Tag": "PowerUp", 
+		"Sprite": {
+			"Path": "PowerUp",
+			"Width": 32,
+			"Height": 32,
+			"Depth": 0.2,
+			"Scale": 1,
+			"Rotatable": true 
+		},
+
+		"Velocity": {
+			"Speed": 300,
+			"Acceleration": 0
+		},
+
+		"Collision": {
+			"Shape": "Circle",
+			"Buffer": 16
+		},
+		"Scripts": ["PowerUp3"]
+	}
 }
